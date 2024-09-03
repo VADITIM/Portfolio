@@ -87,165 +87,129 @@ function Cursor() {
 
 function Scroll() {
     
-    function ScrollName() {
-        const observerOptions = {
-            root: null,
-            rootMargin: "0% 0% 0% 0%",
-            threshold: 0.1, 
-        };
-
-        const observerID = document.getElementById('observerName');
-        const element = document.querySelectorAll('.name');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    element.forEach((element) => {
-                        element.classList.add('nameShow');
-                    });
-                } else {
-                    element.forEach((element) => {
-                        element.classList.remove('nameShow');
-                    });
-                }
-            });
-        }, observerOptions);
-
-        observer.observe(observerID);
-    }
-
-    function ScrollInfo() {
-        const observerOptions = {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0.1, 
-        };
-
-        const observerID = document.getElementById('observerInfo');
-        const element = document.querySelectorAll('.infoHidden');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    element.forEach((element) => {
-                        element.classList.add('infoShow');
-                    });
-                } else {
-                    element.forEach((element) => {
-                        element.classList.remove('infoShow');
-                    });
-                }
-            });
-        }, observerOptions);
-
-        observer.observe(observerID);
-    }
- 
-    function ScrollCS() {
-        const observerOptions = {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0.1, 
-        };
-
-        const observerID = document.getElementById('observerCS');
-        const element = document.querySelectorAll('.info_CS');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    element.forEach((element) => {
-                        element.classList.add('CSShow');
-                    });
-                } else {
-                    element.forEach((element) => {
-                        element.classList.remove('CSShow');
-                    });
-                }
-            });
-        }, observerOptions);
-
-        observer.observe(observerID);
-    }
-
-    function ScrollFrontend() {
-        const observerOptions = {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0.1, 
-        };
-
-        const observerID = document.getElementById('observerFrontend');
-        const element = document.querySelectorAll('.info_frontend');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    element.forEach((element) => {
-                        element.classList.add('frontendShow');
-                    });
-                } else {
-                    element.forEach((element) => {
-                        element.classList.remove('frontendShow');
-                    });
-                }
-            });
-        }, observerOptions);
-
-        observer.observe(observerID);
-    }
-
-    function ScrollDesigner() {
+    function Name() {
         const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
-
-        const observerID = document.getElementById('observerDesigner');
-        const element = document.querySelectorAll('.info_game_designer');
-
+      
+        const observerID = document.getElementById("observerName");
+        const elements = document.querySelectorAll(".name");
+      
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => 
-                {
-                    if (entry.isIntersecting) 
-                        {
-                            element.forEach((element) => 
-                            {
-                                element.classList.add('designerShow');
-                            });
-                        } 
-                        else 
-                        {
-                            element.forEach((element) => 
-                            {
-                                element.classList.remove('designerShow');
-                            });
-                        }
-                    });
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              elements.forEach((el) => el.classList.add("nameShow"));
+            } 
+            else {
+              elements.forEach((el) => el.classList.remove("nameShow"));
+            }
+          });
         }, observerOptions);
+      
         observer.observe(observerID);
     }
+      
+    function MainInfoBG() {
+        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
+      
+        const observerID = document.getElementById("observerInfo");
+        const elements = document.querySelectorAll(".info_clipBG");
+      
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              elements.forEach((el) => el.classList.add("infoShow"));
+            } 
+            else {
+              elements.forEach((el) => el.classList.remove("infoShow"));
+            }
+          });
+        }, observerOptions);
+      
+        observer.observe(observerID);
+    }
+      
+    function ScrollCS() {
+        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
+      
+        const observerID = document.getElementById("observerCS");
+        const elements = document.querySelectorAll(".info_CS");
+      
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              elements.forEach((el) => el.classList.add("CSShow"));
+            } 
+            else {
+              elements.forEach((el) => el.classList.remove("CSShow"));
+            }
+          });
+        }, observerOptions);
+      
+        observer.observe(observerID);
+    }
+      
+    function ScrollFrontend() {
+        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
+      
+        const observerID = document.getElementById("observerFrontend");
+      
+        if (!observerID) {
+          console.error("Element with ID 'observerFrontend' not found.");
+          return;
+        }
+      
+        const elements = document.querySelectorAll(".info_frontend");
+      
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              elements.forEach((el) => el.classList.add("frontendShow"));
+            } 
+            else {
+              elements.forEach((el) => el.classList.remove("frontendShow"));
+            }
+          });
+        }, observerOptions);
+      
+        observer.observe(observerID);
+    }
+      
+    function ScrollDesigner() {
+        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
+      
+        const observerID = document.getElementById("observerDesigner");
+        const elements = document.querySelectorAll(".info_game_designer");
+      
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              elements.forEach((el) => el.classList.add("designerShow"));
+            } 
+            else {
+              elements.forEach((el) => el.classList.remove("designerShow"));
+            }
+          });
+        }, observerOptions);
+      
+        observer.observe(observerID);
+    }
+      
 
-
-    function ScrollAbout() {
-        const observerOptions = {
-            root: null,
-            rootMargin: "0% 0% 0% 0%",
-            threshold: 0.1, 
-        };
+    function AboutMe() {
+        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
 
         const observerID = document.getElementById('observerAbout');
-        const BG = document.querySelectorAll('.aboutBG');
+        const Hover = document.querySelectorAll('.aboutBG');
         const about = document.querySelectorAll('.about');
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    about.forEach((about) => {
-                        about.classList.add('aboutHidden');
-                    BG.forEach(BG => {
-                        BG.classList.add("aboutBGShow")
-                    });
-                    });
-                } else {
-                    about.forEach((about) => {
-                        about.classList.remove('aboutHidden');
-                    BG.forEach(BG => {
-                        BG.classList.remove("aboutBGShow")
-                    });
-                    });
+                    about.forEach((el) =>  el.classList.add('aboutHidden'));
+                    Hover.forEach((el) => el.classList.add("aboutBGShow"));
+                } 
+                else {
+                    about.forEach((el) => el.classList.remove("aboutHidden"));
+                    Hover.forEach((el) => el.classList.remove("aboutBGShow"));
                 }
             });
         }, observerOptions);
@@ -253,357 +217,203 @@ function Scroll() {
         observer.observe(observerID);
     }
 
-    function AboutLine() {
-        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
-
-        const observerID = document.getElementById(     "observerAboutBG"      );
-        const Element = document.querySelectorAll(      ".aboutBG2"    );
-
+    function AboutMeBG() {
+        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
+      
+        const observerID = document.getElementById("observerAboutBG");
+        const elements = document.querySelectorAll(".aboutBG2");
+      
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => 
-                {
-                    if (entry.isIntersecting) 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.add(      "aboutBG2Show"   );
-                            });
-                        } 
-                        else 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.remove(       "aboutBG2Show"   );
-                            });
-                        }
-                    });
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              elements.forEach((el) => el.classList.add("aboutBG2Show"));
+            } 
+            else {
+              elements.forEach((el) => el.classList.remove("aboutBG2Show"));
+            }
+          });
         }, observerOptions);
+      
         observer.observe(observerID);
-    }
-    
-
-    function ScrollLogo() {
-        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
-
-        const observerID = document.getElementById(     "observerNameLogo"     );
-        const Element = document.querySelectorAll(      ".nameLogo"         );
-
+      }
+          
+    function Logo() {
+        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
+      
+        const observerID = document.getElementById("observerNameLogo");
+        const elements = document.querySelectorAll(".logo");
+      
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => 
-                {
-                    if (entry.isIntersecting) 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.add(    "logoShow"  );
-                            });
-                        } 
-                        else 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.remove(   "logoShow"    );
-                            });
-                        }
-                    });
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              elements.forEach((el) => el.classList.add("logoHide"));
+            }
+             else {
+              elements.forEach((el) => el.classList.remove("logoHide"));
+            }
+          });
         }, observerOptions);
+      
         observer.observe(observerID);
-    }
+      }
+      
+      function LogoOut() {
+        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
+      
+        const observerID = document.getElementById("observerNameLogoOut");
+        const elements = document.querySelectorAll(".logo");
+      
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                elements.forEach((el) => {el.classList.add("logoOut");});
+            } 
+            else {
+                elements.forEach((el) => { el.classList.remove("logoOut");});
+            }
+          });
+        }, observerOptions);
+      
+        observer.observe(observerID);
+      }
+      
 
-    function ScrollInfoLine() {
-        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
-
+    function MainInfoAnker() {
+        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
+      
         const observerID = document.getElementById("observerInfoLine");
-        const Element = document.querySelectorAll(".info_line");
-
+        const elements = document.querySelectorAll(".info_line");
+      
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => 
-                {
-                    if (entry.isIntersecting) 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.add("infoLineShow");
-                            });
-                        } 
-                        else 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.remove("infoLineShow");
-                            });
-                        }
-                    });
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              elements.forEach((el) => el.classList.add("infoLineShow"));
+            } 
+            else {
+              elements.forEach((el) => el.classList.remove("infoLineShow"));
+            }
+          });
         }, observerOptions);
+      
         observer.observe(observerID);
     }
+      
 
+    function ProfileBox() {
 
-    function ScrollBackground() {
-        
-        function Accomplishment() {
-            const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
-
-            const observerID = document.getElementById(     "observerAccomplishment"      );
-            const Element = document.querySelectorAll(      ".accomplishments"    );
-            const BG = document.querySelectorAll(      ".accomplishmentsBG"    );
-
-            const observer = new IntersectionObserver((entries) => 
-                {
-                    entries.forEach((entry) => 
-                    {
-                        if (entry.isIntersecting) 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.add('accomplishmentsShow');
-                            BG.forEach(BG => 
-                            {
-                                BG.classList.add("accomplishmentsBGShow")
-                            });
-                            });
-                        } 
-                        else 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.remove('accomplishmentsShow');
-                            BG.forEach(BG => 
-                            {
-                                BG.classList.remove("accomplishmentsBGShow")
-                            });
-                            });
-                        }
-                    });
-                }, observerOptions);
-            observer.observe(observerID);
-        }
-        
-        function Skills() {
-            const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
-
-            const observerID = document.getElementById(     "observerSkills"      );
-            const Element = document.querySelectorAll(      ".personal_skills"    );
-            const BG = document.querySelectorAll(      ".personal_skillsBG"    );
-
-            const observer = new IntersectionObserver((entries) => 
-                {
-                    entries.forEach((entry) => 
-                    {
-                        if (entry.isIntersecting) 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.add('skillsShow');
-                            BG.forEach(BG => 
-                            {
-                                BG.classList.add("skillsBGShow")
-                            });
-                            });
-                        } 
-                        else 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.remove('skillsShow');
-                            BG.forEach(BG => 
-                            {
-                                BG.classList.remove("skillsBGShow")
-                            });
-                            });
-                        }
-                    });
-                }, observerOptions);
-            observer.observe(observerID);
-        }
-        
-        function Expertise() {
-            const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
-
-            const observerID = document.getElementById(     "observerExpertise"      );
-            const Element = document.querySelectorAll(      ".design_expertise"    );
-            const BG = document.querySelectorAll(      ".design_expertiseBG"    );
-
-            const observer = new IntersectionObserver((entries) => 
-                {
-                    entries.forEach((entry) => 
-                    {
-                        if (entry.isIntersecting) 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.add('expertiseShow');
-                            BG.forEach(BG => 
-                            {
-                                BG.classList.add("expertiseBGShow")
-                            });
-                            });
-                        } 
-                        else 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.remove('expertiseShow');
-                            BG.forEach(BG => 
-                            {
-                                BG.classList.remove("expertiseBGShow")
-                            });
-                            });
-                        }
-                    });
-                }, observerOptions);
-            observer.observe(observerID);
-        }
-        
-        function Developer() {
-            const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
-
-            const observerID = document.getElementById(     "observerDeveloper"      );
-            const Element = document.querySelectorAll(      ".developer_background"    );
-            const BG = document.querySelectorAll(      ".developer_backgroundBG"    );
-
-            const observer = new IntersectionObserver((entries) => 
-                {
-                    entries.forEach((entry) => 
-                    {
-                        if (entry.isIntersecting) 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.add('developerShow');
-                            BG.forEach(BG => 
-                            {
-                                BG.classList.add("developerBGShow")
-                            });
-                            });
-                        } 
-                        else 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.remove('developerShow');
-                            BG.forEach(BG => 
-                            {
-                                BG.classList.remove("developerBGShow")
-                            });
-                            });
-                        }
-                    });
-                }, observerOptions);
-            observer.observe(observerID);
+        function BoxFront() {
+        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
+      
+        const observerID = document.getElementById("observerProfile");
+      
+        const TopLeft = document.querySelectorAll(".profile1");
+        const TopRight = document.querySelectorAll(".profile2");
+        const BottomLeft = document.querySelectorAll(".profile3");
+        const BottomRight = document.querySelectorAll(".profile4");
+        const profile1Hover = document.querySelectorAll(".profile1Hover");
+        const profile2Hover = document.querySelectorAll(".profile2Hover");
+        const profile3Hover = document.querySelectorAll(".profile3Hover");
+        const profile4Hover = document.querySelectorAll(".profile4Hover");
+      
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              TopLeft.forEach((el) => el.classList.add("profile1Hidden"));
+              TopRight.forEach((el) => el.classList.add("profile2Hidden"));
+              BottomLeft.forEach((el) => el.classList.add("profile3Hidden"));
+              BottomRight.forEach((el) => el.classList.add("profile4Hidden"));
+      
+              profile1Hover.forEach((el) => el.classList.add("profile1HoverHidden"));
+              profile2Hover.forEach((el) => el.classList.add("profile2HoverHidden"));
+              profile3Hover.forEach((el) => el.classList.add("profile3HoverHidden"));
+              profile4Hover.forEach((el) => el.classList.add("profile4HoverHidden"));
+            } 
+            else {
+              TopLeft.forEach((el) => el.classList.remove("profile1Hidden"));
+              TopRight.forEach((el) => el.classList.remove("profile2Hidden"));
+              BottomLeft.forEach((el) => el.classList.remove("profile3Hidden"));
+              BottomRight.forEach((el) => el.classList.remove("profile4Hidden"));
+      
+              profile1Hover.forEach((el) => el.classList.remove("profile1HoverHidden"));
+              profile2Hover.forEach((el) => el.classList.remove("profile2HoverHidden"));
+              profile3Hover.forEach((el) => el.classList.remove("profile3HoverHidden"));
+              profile4Hover.forEach((el) => el.classList.remove("profile4HoverHidden"));
+            }
+          });
+        }, observerOptions);
+      
+        observer.observe(observerID);
         }
 
+        function BoxBack() {
+        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
+      
+        const observerID = document.getElementById("observerProfile");
+      
+        const TopLeft = document.querySelectorAll(".box_top_left");
+        const TopRight = document.querySelectorAll(".box_top_right");
+        const BottomLeft = document.querySelectorAll(".box_bottom_left");
+        const BottomRight = document.querySelectorAll(".box_bottom_right");
+      
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              TopLeft.forEach((el) => el.classList.add("boxTopLeftHidden"));
+              TopRight.forEach((el) => el.classList.add("boxTopRightHidden"));
+              BottomLeft.forEach((el) => el.classList.add("boxBottomLeftHidden"));
+              BottomRight.forEach((el) => el.classList.add("boxBottomRightHidden"));
+            } 
+            else {
+              TopLeft.forEach((el) => el.classList.remove("boxTopLeftHidden"));
+              TopRight.forEach((el) => el.classList.remove("boxTopRightHidden"));
+              BottomLeft.forEach((el) => el.classList.remove("boxBottomLeftHidden"));
+              BottomRight.forEach((el) => el.classList.remove("boxBottomRightHidden"));
+            }
+          });
+        }, observerOptions);
+      
+        observer.observe(observerID);
+        }
 
-
-        Accomplishment();
-        Skills();
-        Expertise();
-        Developer();
+        BoxFront();
+        BoxBack();
     }
-
-    function Lines() {
-        function TopLeft() {
-            const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
-
-            const observerID = document.getElementById(      "observerllT"      );
-
-            const Top = document.querySelectorAll(      ".leftLineTop"    );
-            const Right = document.querySelectorAll(      ".leftLineRight"    );
-            const Bottom = document.querySelectorAll(      ".leftLineBottom"    );
-            const Left = document.querySelectorAll(      ".leftLineLeft"    );
-
-            const observer = new IntersectionObserver((entries) => 
-                {
-                    entries.forEach((entry) => 
-                    {
-                        if (entry.isIntersecting) 
-                        {
-                            Top.forEach((Top) => 
-                            {
-                                Top.classList.add('leftLineTopHidden');
-                            Right.forEach(Right => 
-                            {
-                                Right.classList.add("leftLineRightHidden")
-                            });
-                            Bottom.forEach(Bottom => 
-                            {
-                                Bottom.classList.add("leftLineBottomHidden")
-                            });
-                            Left.forEach(Left => 
-                            {
-                                Left.classList.add("leftLineLeftHidden")
-                            });
-                            });
-                        } 
-                        else 
-                        {
-                            Top.forEach((Top) => 
-                            {
-                                Top.classList.remove('leftLineTopHidden');
-                            Right.forEach(Right => 
-                            {
-                                Right.classList.remove("leftLineRightHidden")
-                            });
-                            Bottom.forEach(Bottom => 
-                            {
-                                Bottom.classList.remove("leftLineBottomHidden")
-                            });
-                            Left.forEach(Left => 
-                            {
-                                Left.classList.remove("leftLineLeftHidden")
-                            });
-                            });
-                        }
-                    });
-                }, observerOptions);
-            observer.observe(observerID);
-        }
-        TopLeft();
-    }
-
 
     function ScrollKeynotes() {
-        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
+        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
 
-        const observerID = document.getElementById(     "observerKeynotes"      );
-        const Element = document.querySelectorAll(      ".keynotes"    );
-
+        const observerID = document.getElementById("observerKeynotes");
+        const elements = document.querySelectorAll(".keynotes");
+      
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => 
-                {
-                    if (entry.isIntersecting) 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.add(      "keynotesHidden"   );
-                            });
-                        } 
-                        else 
-                        {
-                            Element.forEach((Element) => 
-                            {
-                                Element.classList.remove(       "keynotesHidden"   );
-                            });
-                        }
-                    });
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              elements.forEach((el) => el.classList.add("keynotesHidden"));
+            }
+            else {
+              elements.forEach((el) => el.classList.remove("keynotesHidden"));
+            }
+          });
         }, observerOptions);
+      
         observer.observe(observerID);
     }
-
+          
+    LogoOut();
     ScrollKeynotes();
-    Lines();
-    ScrollLogo();
-    ScrollAbout();
-    AboutLine();
+    Logo();
+    AboutMe();
+    AboutMeBG();
     ScrollCS();
     ScrollFrontend();
     ScrollDesigner();
-    ScrollName();
-    ScrollInfo();
-    ScrollInfoLine()
-    ScrollBackground();
+    Name();
+    MainInfoBG();
+    MainInfoAnker()
+    ProfileBox();
 
 // TEMPLATE---------------------------------------------------------------
+}
 
     function WWW() {
         const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
@@ -633,4 +443,3 @@ function Scroll() {
         observer.observe(observerID);
     }
 // TEMPLATE---------------------------------------------------------------
-}
