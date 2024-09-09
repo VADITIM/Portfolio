@@ -37,7 +37,7 @@ body {
   color: #f2f2f2;
   overflow-x: hidden;
   overflow-y: visible;
-  height: 300vh;
+  max-height: 110vh;
   max-width: 100vw;
   margin: 0;
   padding: 0;
@@ -59,31 +59,41 @@ body::-webkit-scrollbar {
 
 /* OBSERVER ----------------------- */
 /* OBSERVER ------------------------------------------------------------------------------------------- */
-#observerNameLogo,
-#observerNameLogoOut,
+#observerLogo,
+#observerLogoOut,
 #observerName,
+#observerInfoLine,
 
 #observerInfo,
 #observerCS,
 #observerFrontend,
 #observerDesigner,
 
-#observerAboutBG,
+#observerabout-front-BG,
+#observerabout-front-BGOut,
+#observerabout-back-BGOut2,
 #observerAbout,
+#observerAboutOut,
 
-#observerInfoLine,
 
 #observerKeynotes,
+#observerKeynotesOut,
 
 #observerAccomplishment,
+#observerAccomplishmentOut,
 #observerSkills,
+#observerSkillsOut,
 #observerExpertise,
+#observerExpertiseOut,
 #observerDeveloper,
+#observerDeveloperOut,
 
 #observerProfile,
-#observerllR,
-#observerllB,
-#observerllL {
+#observerProfileOut,
+
+#observerProjects,
+#observerMyProjects,
+#observerAllProjects {
   display: flex;
   justify-content: center;
   position: absolute;
@@ -92,6 +102,61 @@ body::-webkit-scrollbar {
   background-color: rgba(153, 51, 51, 0.425);
 }
 
+
+
+
+#observerProjects {
+  top: 220vh;
+  opacity: 1;
+  background-color: rgba(0, 30, 128, 0.562);
+}
+
+#observerMyProjects {
+  top: 225vh;
+  opacity: 1;
+  background-color: rgba(0, 128, 0, 0.432);
+}
+
+#observerAllProjects {
+  top: 260vh;
+  opacity: 1;
+  background-color: rgba(161, 153, 30, 0.507);
+}
+
+
+
+
+
+#observerabout-front-BGOut {
+  top: 190vh;
+  opacity: 1;
+}
+
+#observerabout-back-BGOut {
+  top: 195vh;
+  opacity: 1;
+}
+
+#observerabout-back-BGOut2 {
+  top: 220vh;
+  opacity: 1;
+
+}
+
+#observerAboutOut {
+  top: 195vh;
+  opacity: 0;
+}
+
+#observerProfileOut {
+  top: 210vh;
+  opacity: 0;
+  background-color: #03a8f442 ;
+}
+
+#observerKeynotesOut {
+
+}
 
 
 
@@ -104,27 +169,15 @@ body::-webkit-scrollbar {
   top: 40vh;  
   opacity: 0;
 }
-#observerllR {
-  top: 40vh;  
-  opacity: 0;
-}
-#observerllB {
-  top: 40vh;  
-  opacity: 0;
-}
-#observerllL {
-  top: 40vh;  
-  opacity: 0;
-}
 
-#observerNameLogo {
+#observerLogo {
   top: 40vh;
-  opacity: 1;
+  opacity: 0;
   background-color: rgba(0, 0, 255, 0.284);
 }
 
-#observerNameLogoOut {
-  opacity: 1;
+#observerLogoOut {
+  opacity: 0;
   top: 200vh;
 }
 
@@ -154,11 +207,11 @@ body::-webkit-scrollbar {
 }
 
 #observerAbout {
-  top: 40vh;
+  top: 50vh;
   opacity: 0;
 }
 
-#observerAboutBG {
+#observerabout-front-BG {
   top: 47vh;
   opacity: 0;
 }
@@ -407,9 +460,9 @@ body::-webkit-scrollbar {
   width: 25vw;
   height: 4rem;
   position: absolute;
-  left: 3%;
+  left: 20vh;
   transform: rotateY(20deg);
-  font-size: 3rem;
+  font-size: 2.7rem;
   font-family: Mono;
   background-color: #303030f3;
   border-bottom: solid 3px #7e55dd;
@@ -432,7 +485,6 @@ body::-webkit-scrollbar {
   transition: .3s ease all, height .3s ease .3s;
 }
 
-
 .CSHidden {
   opacity: 0;
   transform: rotateY(0deg);
@@ -444,12 +496,12 @@ body::-webkit-scrollbar {
   left: 10%;
   opacity: 1;
   transform: rotateY(20deg);
-  transition: .9s ease, opacity 0s;
+  transition: .3s ease, opacity 0s, width .3s ease .3s;
 }
 
 .info_CS:hover .info_1,
 .info_CS:hover .info_2 {
-  width: 15vw;
+  width: 16vw;
   left: 1%;
   opacity: 1;
 }
@@ -476,7 +528,7 @@ body::-webkit-scrollbar {
   left: 10%;
   opacity: 1;
   transform: rotateY(20deg);
-  transition: .9s ease, opacity 0s;
+  transition: .3s ease, opacity 0s, width .3s ease .3s;
 }
 
 .info_frontend:hover .info_1,
@@ -507,7 +559,7 @@ body::-webkit-scrollbar {
   left: 10%;
   opacity: 1;
   transform: rotateY(20deg);
-  transition: .9s ease, opacity 0s;
+  transition: .3s ease, opacity 0s, width .3s ease .3s;
 }
 
 
@@ -566,23 +618,24 @@ body::-webkit-scrollbar {
 
 }
 
-.aboutBG {
+.about-front-BG {
   display: flex;
   width: 14vw;
-  height: 200%;
+  height: 120%;
   position: absolute;
   background-color: #2b62ec;
-  transition: .3s ease all;
   clip-path: polygon(0 0, 5% 0, 100% 100%, 0% 100%);
+  left: 0;
   z-index: 1;
-  top: -55vh;
+  transition: .6s ease all;
 }
 
-.aboutBGShow {
-  top: 100%;
+.about-front-BGShow {
+  left: -100%;
+  transition: .3s ease all, display 0s 1s;
 }
 
-.aboutBG2 {
+.about-back-BG {
   display: flex;
   width: 14vw;
   height: 140%;
@@ -590,13 +643,19 @@ body::-webkit-scrollbar {
   left: 0;
   top: -55vh;
   background-color: #4076FA;
-  transition: .3s ease all;
+  transition: .3s ease all, display 0s 1s;
   clip-path: polygon(100% 0, 0% 100%, 0 0);
   z-index: 1;
 }
 
-.aboutBG2Show {
+.about-back-BGShow {
   top: -300vh;
+}
+
+.about-back-BGOut {
+  left: -30vh;
+  transition: .3s ease all, height 0s .3s;
+  height: 0px;
 }
 
 /* make a special hover and lett new letter jump and slide in for about me */
@@ -617,6 +676,12 @@ body::-webkit-scrollbar {
 .aboutHidden {
   left: 120%;
   transform: rotateY(90deg) rotateX(90deg);
+  transition: 2s ease;
+}
+
+.aboutOut {
+  left: -20vw;
+  transition: 2s ease;
 }
 
 .keynotes {
@@ -661,6 +726,7 @@ body::-webkit-scrollbar {
   transform: translateX(-50%);
   width: 50vh;
   height: 40vh;
+  z-index: 2;
 }
 
 
@@ -750,10 +816,19 @@ body::-webkit-scrollbar {
   top: -204vh;
   left: 220vh;
   transition: .8s ease all 0s;
-  
 }
 
+.boxTopLeftOut,
+.boxBottomLeftOut {
+  right: 150vw;
+  transition: .6s ease;
+}
 
+.boxTopRightOut,
+.boxBottomRightOut {
+  left: 150vw;
+  transition: .6s ease;
+}
 
 
 
@@ -1007,9 +1082,19 @@ body::-webkit-scrollbar {
 }
 
 
+.profile1Out,
+.profile1HoverOut,
+.profile3Out,
+.profile3HoverOut {
+  right: 150vw;
+}
 
-
-
+.profile2Out,
+.profile2HoverOut,
+.profile4HoverOut,
+.profile4Out {
+  left: 150vw;
+}
 
 
 
@@ -1135,11 +1220,205 @@ body::-webkit-scrollbar {
 
 
 
+.main3_container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 175vh;
+  overflow: visible;
+  perspective: 1000px;
+  z-index: 1;
+}
+
+.projectBG {
+  display: flex;
+  height: 200vh;
+  width: 20%;
+  position: absolute;
+  right: 0;
+  top: -400vh;
+  background-color: #ff0000;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 51% 100%);
+  z-index: 2;
+  transition: .3s ease ;
+}
+
+.projectBGShow {
+  top: -100vh;
+  transition: .3s ease .25s;
+}
+
+.projectBG2 {
+  display: flex;
+  height: 100vh;
+  width: 20%;
+  position: absolute;
+  right: -200vh;
+  background-color: #960000;
+  clip-path: polygon(78% 0, 100% 0, 100% 100%, 0 100%);
+  z-index: 1;
+  transition: .4s ease;
+}
+
+.projectBG2Show {
+  right: 0vh;
+  transition: .4s ease;
+}
+
+.myProjects {
+  display: flex;
+  height: 3rem;
+  width: auto;
+  position: absolute;
+  left: -100vw;
+  top: 10%;
+  transition: 1s ease;
+  font-family: DT;
+  font-size: 3rem;
+  transform: rotateY(-10deg);
+}
+
+.myProjectsShow {
+  left: 10vw;
+
+}
 
 
 
+.allProjects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 60vw;
+  height: 50vh;
+  top: 50vh;
+  left: -140vw;
+  transform: translate(-50%, -50%) rotateY(15deg);
+  transition: 1s ease;
+}
 
+.allProjectsShow {
+  left: 40vw;
+}
 
+.project1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 40vh;
+  height: 40vh;
+  /* background-color: red; */
+  left: 10%;
+}
+
+.project1Heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 1vh;
+  width: 100%;
+  height: 3rem;
+  position: absolute;
+  font-size: 1.5rem;
+  font-family: Mono;
+}
+
+.projcet1Picture {
+  background-image: url("../Media/img/anomaly2.JPG");
+  width: 32vh;
+  height: 32vh;
+  position: absolute;
+  top: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: solid 1px red;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.608);
+}
+
+.project1Description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  height: 80vh;
+  position: absolute;
+  left: -200%;
+  background-color: rgba(110, 110, 105, 0.708);
+  transition: 1s ease;
+  z-index: 40;
+}
+
+.pro1Show {
+  left: 0;
+}
+
+.project2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 40vh;
+  height: 40vh;
+  right: 10%;
+}
+
+.project2Heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 1vh;
+  width: 150%;
+  height: 3rem;
+  position: absolute;
+  font-size: 1.5rem;
+  font-family: Mono;
+}
+
+.projcet2Picture {
+  background-image: url("../Media/img/wrathofthefallenqueen.jpg");
+  width: 32vh;
+  height: 32vh;
+  position: absolute;
+  top: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: solid 1px red;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.608);
+}
+
+.project2Description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  height: 80vh;
+  position: absolute;
+  left: -200%;
+  background-color: rgba(110, 110, 105, 0.708);
+  transition: 1s ease;
+  z-index: 40;
+}
+
+.pro2Show {
+  left: 0;
+}
+
+/* 
+.project3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 30vh;
+  height: 30vh;
+  background-color: red;
+  right: 10%;
+} */
 
 
 
@@ -1150,6 +1429,7 @@ body::-webkit-scrollbar {
   .nameShow {
     opacity: 1;
     left: 21vw;
+    font-size: 1rem;
   }
 
 
