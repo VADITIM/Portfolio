@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () =>
     Cursor();
     Scroll();
     // Parallax();
+    ProjectShowcase();
 });
 
 function Parallax() {
@@ -738,4 +739,35 @@ projectDescription2.addEventListener("click", function() {
 
 
 
-  
+
+function ProjectShowcase() {
+  const project1 = document.querySelector(".project-1");
+  const project2 = document.querySelector(".project-2");
+  const project3 = document.querySelector(".project-3");
+
+  project1.addEventListener("click", function() {
+    if (!project1.classList.contains("projectDisplayShow")) {
+      project1.classList.add("projectDisplayShow");
+    } else {
+      project1.classList.remove("projectDisplayShow");
+    }
+  });
+
+  project2.addEventListener("click", function() {
+    if (!project2.classList.contains("projectDisplayShow")) {
+      project2.classList.add("projectDisplayShow");
+    } else {
+      project2.classList.remove("projectDisplayShow");
+    }
+  });
+
+  project3.addEventListener("click", function() {
+    if (!project3.classList.contains("projectDisplayShow")) {
+      project3.classList.add("projectDisplayShow");
+    } else {
+      project3.classList.remove("projectDisplayShow");
+    }
+  });
+
+
+}
