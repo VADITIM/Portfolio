@@ -107,19 +107,19 @@ body::-webkit-scrollbar {
 
 #observerProjects {
   top: 220vh;
-  opacity: 1;
+  opacity: 0;
   background-color: rgba(0, 30, 128, 0.562);
 }
 
 #observerMyProjects {
   top: 225vh;
-  opacity: 1;
+  opacity: 0;
   background-color: rgba(0, 128, 0, 0.432);
 }
 
 #observerAllProjects {
   top: 260vh;
-  opacity: 1;
+  opacity: 0;
   background-color: rgba(161, 153, 30, 0.507);
 }
 
@@ -129,17 +129,17 @@ body::-webkit-scrollbar {
 
 #observerabout-front-BGOut {
   top: 190vh;
-  opacity: 1;
+  opacity: 0;
 }
 
 #observerabout-back-BGOut {
   top: 195vh;
-  opacity: 1;
+  opacity: 0;
 }
 
 #observerabout-back-BGOut2 {
   top: 220vh;
-  opacity: 1;
+  opacity: 0;
 
 }
 
@@ -853,6 +853,7 @@ body::-webkit-scrollbar {
   font-size: 2rem;
   color: white;
   font-family: Mono;
+  cursor: pointer;
 }
 
 .profile1 {
@@ -1231,7 +1232,7 @@ body::-webkit-scrollbar {
   z-index: 1;
 }
 
-.projectBG {
+.main-3-frontBG {
   display: flex;
   height: 200vh;
   width: 20%;
@@ -1244,12 +1245,18 @@ body::-webkit-scrollbar {
   transition: .3s ease ;
 }
 
-.projectBGShow {
+.main3FrontBGShow {
   top: -100vh;
-  transition: .3s ease .25s;
+  transition: .3s ease;
 }
 
-.projectBG2 {
+.main3FrontBGClick {
+  transition: .3s ease .3s;
+  width: 50%;
+  z-index: 20;
+}
+
+.main-3-backBG {
   display: flex;
   height: 100vh;
   width: 20%;
@@ -1261,9 +1268,14 @@ body::-webkit-scrollbar {
   transition: .4s ease;
 }
 
-.projectBG2Show {
+.main3BackBGShow {
   right: 0vh;
-  transition: .4s ease;
+  transition: .4s ease .1s;
+}
+
+.main3BackBGClick {
+  width: 50%;
+  transition: .3s ease .25s;
 }
 
 .myProjects {
@@ -1298,6 +1310,7 @@ body::-webkit-scrollbar {
   left: 40vw;
   transform: translate(-50%, -50%) rotateY(15deg);
   transition: 1s ease;
+
 }
 
 
@@ -1310,6 +1323,7 @@ body::-webkit-scrollbar {
   height: 80vh;
   left: 5%;
   top: 10%;
+  /* background-color: green; */
 }
 
 .project-1-container,
@@ -1349,6 +1363,8 @@ body::-webkit-scrollbar {
   border: solid 1px rgba(255, 255, 255, 0.575);
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.26);
   transition: width 0.25s, height 0.25s, top .4s, left .3s, transform .6s, border-radius .5s, z-index .2s 0s;
+  cursor: pointer;
+
 }
 
 .project-1 {
@@ -1394,13 +1410,13 @@ body::-webkit-scrollbar {
   align-items: end;
   transform-origin: right;
   position: absolute;
-  top: 0;
+  top: -30vh;
   left: -100vw;
   width: 60vw;
-  height: 50vh;
+  height: 80vh;
   clip-path: polygon(0 0, 0% 100%, 100% 0);
-  background-color: #eb146e50;
-  border-top: solid 2px #eb146e90;
+  background-color: #ca2525;
+  border-top: solid 2px #ff0000;
   color: rgba(77, 72, 72, 0.658);
   backdrop-filter: blur(3px);
   z-index: 40;
@@ -1427,7 +1443,7 @@ body::-webkit-scrollbar {
 .project2HeadingShow,
 .project3HeadingShow {
   left: 0;
-  transition: .3s .5s all;
+  transition: .3s s all;
 }
 
 

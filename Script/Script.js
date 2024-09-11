@@ -663,6 +663,9 @@ function ProjectsContainerFunction() {
 
     const projectHeadingBG = document.querySelectorAll(".project-1-heading-BG");
 
+    const main3FrontBG = document.querySelector(".main-3-frontBG");
+    const main3BackBG = document.querySelector(".main-3-backBG");
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting)
@@ -682,6 +685,10 @@ function ProjectsContainerFunction() {
           display.forEach((e) => e.classList.remove("projectDisplayShow"));
 
           projectHeadingBG.forEach((e) => e.classList.remove("project1HeadingShow"));
+
+          main3FrontBG.classList.remove("main3FrontBGClick");
+          main3BackBG.classList.remove("main3BackBGClick");
+  
         }
       });
     }, observerOptions);
@@ -689,6 +696,7 @@ function ProjectsContainerFunction() {
     observer.observe(observerID);
   }      
     
+  // CLICK FUNCTION
   function ProjectShowcaseOnClick() {
     const project1 = document.querySelector(".project-1");
     const project1Heading = document.querySelector(".project-1-heading-BG");
@@ -698,42 +706,69 @@ function ProjectsContainerFunction() {
 
     const project3 = document.querySelector(".project-3");
     const project3Heading = document.querySelector(".project-3-heading-BG");
+
+    const main3FrontBG = document.querySelector(".main-3-frontBG");
+    const main3BackBG = document.querySelector(".main-3-backBG");
   
     project1.addEventListener("click", function() 
     {
       if (!project1.classList.contains("projectDisplayShow")) 
       {
-        project1.classList.add("projectDisplayShow");
-        project1Heading.classList.add("project1HeadingShow");
-      } else {
-        project1.classList.remove("projectDisplayShow");
-        project1Heading.classList.remove("project1HeadingShow");
+        project1.classList.add("projectDisplayShow"); // fullscreen project
+
+        project1Heading.classList.add("project1HeadingShow"); // project heading slide in
+
+        main3FrontBG.classList.add("main3FrontBGClick");  // front background slide in
+        main3BackBG.classList.add("main3BackBGClick");  // back backgroundslide in
+      } else { 
+        project1.classList.remove("projectDisplayShow"); // fullscren OFF project
+
+        project1Heading.classList.remove("project1HeadingShow"); // project heading slide out
+
+        main3FrontBG.classList.remove("main3FrontBGClick"); // front background slide out 
+        main3BackBG.classList.remove("main3BackBGClick"); // back background slide out
       }
     });
   
     project2.addEventListener("click", function() {
       if (!project2.classList.contains("projectDisplayShow")) 
         {
-        project2.classList.add("projectDisplayShow");
-        project2Heading.classList.add("project2HeadingShow");
+        project2.classList.add("projectDisplayShow"); // fullscreen project
+
+        project2Heading.classList.add("project2HeadingShow"); // project heading slide in
+
+        main3FrontBG.classList.add("main3FrontBGClick");  // front background slide in
+        main3BackBG.classList.add("main3BackBGClick");  // back backgrounds lide in
       } 
-      else 
+      else  
       {
-        project2.classList.remove("projectDisplayShow");
-        project2Heading.classList.remove("project2HeadingShow");
+        project2.classList.remove("projectDisplayShow");  // fullscren OFF project
+
+        project2Heading.classList.remove("project2HeadingShow");  // project heading slide out
+        
+        main3FrontBG.classList.remove("main3FrontBGClick"); // front background slide out 
+        main3BackBG.classList.remove("main3BackBGClick"); // back background slide out
       }
     });
   
     project3.addEventListener("click", function() {
       if (!project3.classList.contains("projectDisplayShow")) 
         {
-        project3.classList.add("projectDisplayShow");
-        project3Heading.classList.add("project3HeadingShow");
+        project3.classList.add("projectDisplayShow"); // fullscreen project
+
+        project3Heading.classList.add("project3HeadingShow"); // project heading slide in
+
+        main3FrontBG.classList.add("main3FrontBGClick"); // front background slide in
+        main3BackBG.classList.add("main3BackBGClick"); // back backgrounds lide in
       } 
       else 
       {
-        project3.classList.remove("projectDisplayShow");
-        project3Heading.classList.remove("project3HeadingShow");
+        project3.classList.remove("projectDisplayShow"); // fullscren OFF project
+
+        project3Heading.classList.remove("project3HeadingShow"); // project heading slide out
+
+        main3FrontBG.classList.remove("main3FrontBGClick"); // front background slide out 
+        main3BackBG.classList.remove("main3BackBGClick"); // back background slide out
       }
     });
   }
@@ -742,15 +777,15 @@ function ProjectsContainerFunction() {
       const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
 
       const observerID = document.getElementById("observerProjects");
-      const elements = document.querySelectorAll(".projectBG");
+      const elements = document.querySelectorAll(".main-3-frontBG");
     
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            elements.forEach((el) => el.classList.add("projectBGShow"));
+            elements.forEach((el) => el.classList.add("main3FrontBGShow"));
           }
           else {
-            elements.forEach((el) => el.classList.remove("projectBGShow"));
+            elements.forEach((el) => el.classList.remove("main3FrontBGShow"));
           }
         });
       }, observerOptions);
@@ -762,15 +797,15 @@ function ProjectsContainerFunction() {
     const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
 
     const observerID = document.getElementById("observerProjects");
-    const elements = document.querySelectorAll(".projectBG2");
+    const elements = document.querySelectorAll(".main-3-backBG");
   
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          elements.forEach((el) => el.classList.add("projectBG2Show"));
+          elements.forEach((el) => el.classList.add("main3BackBGShow"));
         }
         else {
-          elements.forEach((el) => el.classList.remove("projectBG2Show"));
+          elements.forEach((el) => el.classList.remove("main3BackBGShow"));
         }
       });
     }, observerOptions);
