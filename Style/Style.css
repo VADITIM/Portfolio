@@ -153,10 +153,10 @@ body::-webkit-scrollbar {
   opacity: 0;
   background-color: #03a8f442 ;
 }
-
+/* 
 #observerKeynotesOut {
 
-}
+} */
 
 
 
@@ -1286,7 +1286,7 @@ body::-webkit-scrollbar {
 
 
 
-.allProjects {
+.allProjectsShow {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1295,137 +1295,10 @@ body::-webkit-scrollbar {
   height: 50vh;
   top: 50vh;
   left: -140vw;
+  left: 40vw;
   transform: translate(-50%, -50%) rotateY(15deg);
   transition: 1s ease;
 }
-
-.allProjectsShow {
-  left: 40vw;
-}
-
-.project1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: 40vh;
-  height: 40vh;
-  /* background-color: red; */
-  left: 10%;
-}
-
-.project1Heading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 1vh;
-  width: 100%;
-  height: 3rem;
-  position: absolute;
-  font-size: 1.5rem;
-  font-family: Mono;
-}
-
-.projcet1Picture {
-  background-image: url("../Media/img/anomaly2.JPG");
-  width: 32vh;
-  height: 32vh;
-  position: absolute;
-  top: 0;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: solid 1px red;
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.608);
-}
-
-.project1Description {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80vw;
-  height: 80vh;
-  position: absolute;
-  left: -200%;
-  background-color: rgba(110, 110, 105, 0.708);
-  transition: 1s ease;
-  z-index: 40;
-}
-
-.pro1Show {
-  left: 0;
-}
-
-.project2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: 40vh;
-  height: 40vh;
-  right: 10%;
-}
-
-.project2Heading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 1vh;
-  width: 150%;
-  height: 3rem;
-  position: absolute;
-  font-size: 1.5rem;
-  font-family: Mono;
-}
-
-.projcet2Picture {
-  background-image: url("../Media/img/wrathofthefallenqueen.jpg");
-  width: 32vh;
-  height: 32vh;
-  position: absolute;
-  top: 0;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: solid 1px red;
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.608);
-}
-
-.project2Description {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80vw;
-  height: 80vh;
-  position: absolute;
-  left: -200%;
-  background-color: rgba(110, 110, 105, 0.708);
-  transition: 1s ease;
-  z-index: 40;
-}
-
-.pro2Show {
-  left: 0;
-}
-
-/* 
-.project3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: 30vh;
-  height: 30vh;
-  background-color: red;
-  right: 10%;
-} */
-
-
-
-
-
-
-
 
 
 .projectContainer {
@@ -1436,66 +1309,68 @@ body::-webkit-scrollbar {
   width: 80vw;
   height: 80vh;
   left: 5%;
+  top: 10%;
 }
 
-.project {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30vh;
-  height: 30vh;
-}
-
-.projectDisplay {
+.project-1-container,
+.project-2-container,
+.project-3-container {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  width: 40vw;
-  height: 30vh;
-  transition: width 0.25s, height 0.25s, top .3s, left .35s, transform .1s, border-radius .5s;
+  width: 99%;
+  height: 99%;
+  left: -100%;
+  transition: .5s ease all;
+}
+
+.project-1-containerShow,
+.project-2-containerShow,
+.project-3-containerShow {
+  left: 0;
+  transition: .5s ease, var(--delay);
+}
+
+.project-1,
+.project-2,
+.project-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 15%;
+  height: 60%;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 20px;
+  border: solid 1px rgba(255, 255, 255, 0.575);
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.26);
+  transition: width 0.25s, height 0.25s, top .4s, left .3s, transform .6s, border-radius .5s, z-index .2s 0s;
 }
 
 .project-1 {
   background-image: url(../Media/img/anomaly2.JPG);
-  background-size: cover;
-  background-position: center;
-  left: 5%;
+  background-position-y: 23%;
+  left: 10%;
   top: 60%;
-  transform: translate(-50%, -50%);
-  width: 5%;
-  height: 40%;
-  border-radius: 40px;
-  border: solid 1px rgba(255, 255, 255, 0.575);
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.26);
+  z-index: 10;
 }
 
 .project-2 {
   background-image: url(../Media/img/anomaly1.JPG);
-  background-size: cover;
-  background-position: center;
-  left: 10%;
+  left: 26%;
   top: 60%;
-  transform: translate(-50%, -50%);
-  width: 5%;
-  height: 40%;
-  border-radius: 40px;
-  border: solid 1px rgba(255, 255, 255, 0.575);
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.26);
+  z-index: 9;
 }
 
 .project-3 {
   background-image: url(../Media/img/wrathofthefallenqueen.jpg);
-  background-size: cover;
-  background-position: center;
-  left: 15%;
+  left: 42%;
   top: 60%;
-  transform: translate(-50%, -50%);
-  width: 5%;
-  height: 40%;
-  border-radius: 40px;
-  border: solid 1px rgba(255, 255, 255, 0.575);
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.26);
+  z-index: 8;
 }
 
 .projectDisplayShow {
@@ -1504,10 +1379,61 @@ body::-webkit-scrollbar {
   top: 100%;
   left: 50%;
   transform: translate(-50%, -100%);
-  transition: width 0.75s, height 0.75s, top .2s, left .3s, transform .1s, border-radius 1s;
-  z-index: 3;
+  transition: width 0.75s, height 0.75s, top .2s, left .35s, transform .4s, border-radius 1s, z-index .5s;
+  z-index: 11;
   border-radius: 0px;
 }
+
+
+
+.project-1-heading-BG,
+.project-2-heading-BG,
+.project-3-heading-BG {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  transform-origin: right;
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  width: 60vw;
+  height: 50vh;
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+  background-color: #eb146e50;
+  border-top: solid 2px #eb146e90;
+  color: rgba(77, 72, 72, 0.658);
+  backdrop-filter: blur(3px);
+  z-index: 40;
+  transition: .3s all;
+}
+
+.project-1-heading, 
+.project-2-heading, 
+.project-3-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 30%;
+  top: 35%;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-family: Mono;
+}
+
+.project1HeadingShow,
+.project2HeadingShow,
+.project3HeadingShow {
+  left: 0;
+  transition: .3s .5s all;
+}
+
+
+
+
+
 
 
 
@@ -1519,9 +1445,7 @@ body::-webkit-scrollbar {
     left: 21vw;
     font-size: 1rem;
   }
-
-
-  }
+}
 
 
   
@@ -1539,3 +1463,8 @@ body::-webkit-scrollbar {
 .d { --delay: .15s; }
 .t { --delay: .5s; }
 .l { --delay: .4s; }
+
+.project-1-containerShow { --delay: left 0.2s;}
+.project-2-containerShow { --delay: left 0.3s;}
+.project-3-containerShow { --delay: left 0.4s;}
+

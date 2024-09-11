@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () =>
     Cursor();
     Scroll();
     // Parallax();
-    ProjectShowcase();
+    ProjectsContainerFunction();
 });
 
 function Parallax() {
@@ -574,95 +574,6 @@ AboutMeOut2();
       
         observer.observe(observerID);
     }
-
-    function Projects() {
-      
-      function ProjectBackground() {
-        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
-
-        const observerID = document.getElementById("observerProjects");
-        const elements = document.querySelectorAll(".projectBG");
-      
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              elements.forEach((el) => el.classList.add("projectBGShow"));
-            }
-            else {
-              elements.forEach((el) => el.classList.remove("projectBGShow"));
-            }
-          });
-        }, observerOptions);
-      
-        observer.observe(observerID);
-    }
-
-    function ProjectBackground2() {
-      const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
-
-      const observerID = document.getElementById("observerProjects");
-      const elements = document.querySelectorAll(".projectBG2");
-    
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            elements.forEach((el) => el.classList.add("projectBG2Show"));
-          }
-          else {
-            elements.forEach((el) => el.classList.remove("projectBG2Show"));
-          }
-        });
-      }, observerOptions);
-    
-      observer.observe(observerID);
-    }
-    
-    function MyProjects() {
-        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
-
-        const observerID = document.getElementById("observerMyProjects");
-        const elements = document.querySelectorAll(".myProjects");
-      
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              elements.forEach((el) => el.classList.add("myProjectsShow"));
-            }
-            else {
-              elements.forEach((el) => el.classList.remove("myProjectsShow"));
-            }
-          });
-        }, observerOptions);
-      
-        observer.observe(observerID);
-    }
-      MyProjects();
-      ProjectBackground();
-      ProjectBackground2();
-  }
-
-  function AllProjects() {
-    const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
-
-    const observerID = document.getElementById("observerAllProjects");
-    const elements = document.querySelectorAll(".allProjects");
-  
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          elements.forEach((el) => el.classList.add("allProjectsShow"));
-        }
-        else {
-          elements.forEach((el) => el.classList.remove("allProjectsShow"));
-        }
-      });
-    }, observerOptions);
-  
-    observer.observe(observerID);
-}
-
-AllProjects();
-    Projects();
     LogoOut();
     ScrollKeynotes();
     Logo();
@@ -711,63 +622,161 @@ AllProjects();
 
 
 
+function ProjectsContainerFunction() {
+  MyProjectsText();
 
-project = document.querySelector(".projcet1Picture");
-projectDescription = document.querySelector(".project1Description");
+  ProjectsContainer();
+  ProjectShowcaseOnClick();
 
-project.addEventListener("click", function() {
-  projectDescription.classList.add("pro1Show")
-  console.log("click");
-});
+  ProjectBackground();
+  ProjectBackground2();
+  
+  function MyProjectsText() {
+    const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
 
-projectDescription.addEventListener("click", function() {
-  projectDescription.classList.remove("pro1Show");
-});
+    const observerID = document.getElementById("observerMyProjects");
+    const elements = document.querySelectorAll(".myProjects");
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          elements.forEach((el) => el.classList.add("myProjectsShow"));
+        }
+        else {
+          elements.forEach((el) => el.classList.remove("myProjectsShow"));
+        }
+      });
+    }, observerOptions);
+  
+    observer.observe(observerID);
+  }
+    
+    function ProjectsContainer() {
+    const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
 
+    const observerID = document.getElementById("observerAllProjects");
+    const project1 = document.querySelectorAll(".project-1-container");
+    const project2 = document.querySelectorAll(".project-2-container");
+    const project3 = document.querySelectorAll(".project-3-container");
 
-project2 = document.querySelector(".projcet2Picture");
-projectDescription2 = document.querySelector(".project2Description");
+    const display = document.querySelectorAll(".projectDisplay");
 
-project2.addEventListener("click", function() {
-  projectDescription2.classList.add("pro2Show")
-  console.log("click");
-});
+    const projectHeadingBG = document.querySelectorAll(".project-1-heading-BG");
 
-projectDescription2.addEventListener("click", function() {
-  projectDescription2.classList.remove("pro2Show");
-});
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting)
+        { 
+            project1.forEach((el) => el.classList.add("project-1-containerShow")); 
+            project2.forEach((el) => el.classList.add("project-2-containerShow")); 
+            project3.forEach((el) => el.classList.add("project-3-containerShow")); 
 
+            projectHeadingBG.forEach((e) => e.classList.remove("project1HeadingShow"));
+          }
+        else 
+        { 
+          project1.forEach((el) => el.classList.remove("project-1-containerShow")); 
+          project2.forEach((el) => el.classList.remove("project-2-containerShow")); 
+          project3.forEach((el) => el.classList.remove("project-3-containerShow")); 
 
+          display.forEach((e) => e.classList.remove("projectDisplayShow"));
 
+          projectHeadingBG.forEach((e) => e.classList.remove("project1HeadingShow"));
+        }
+      });
+    }, observerOptions);
 
-function ProjectShowcase() {
-  const project1 = document.querySelector(".project-1");
-  const project2 = document.querySelector(".project-2");
-  const project3 = document.querySelector(".project-3");
+    observer.observe(observerID);
+  }      
+    
+  function ProjectShowcaseOnClick() {
+    const project1 = document.querySelector(".project-1");
+    const project1Heading = document.querySelector(".project-1-heading-BG");
+    
+    const project2 = document.querySelector(".project-2");
+    const project2Heading = document.querySelector(".project-2-heading-BG");
 
-  project1.addEventListener("click", function() {
-    if (!project1.classList.contains("projectDisplayShow")) {
-      project1.classList.add("projectDisplayShow");
-    } else {
-      project1.classList.remove("projectDisplayShow");
-    }
-  });
+    const project3 = document.querySelector(".project-3");
+    const project3Heading = document.querySelector(".project-3-heading-BG");
+  
+    project1.addEventListener("click", function() 
+    {
+      if (!project1.classList.contains("projectDisplayShow")) 
+      {
+        project1.classList.add("projectDisplayShow");
+        project1Heading.classList.add("project1HeadingShow");
+      } else {
+        project1.classList.remove("projectDisplayShow");
+        project1Heading.classList.remove("project1HeadingShow");
+      }
+    });
+  
+    project2.addEventListener("click", function() {
+      if (!project2.classList.contains("projectDisplayShow")) 
+        {
+        project2.classList.add("projectDisplayShow");
+        project2Heading.classList.add("project2HeadingShow");
+      } 
+      else 
+      {
+        project2.classList.remove("projectDisplayShow");
+        project2Heading.classList.remove("project2HeadingShow");
+      }
+    });
+  
+    project3.addEventListener("click", function() {
+      if (!project3.classList.contains("projectDisplayShow")) 
+        {
+        project3.classList.add("projectDisplayShow");
+        project3Heading.classList.add("project3HeadingShow");
+      } 
+      else 
+      {
+        project3.classList.remove("projectDisplayShow");
+        project3Heading.classList.remove("project3HeadingShow");
+      }
+    });
+  }
 
-  project2.addEventListener("click", function() {
-    if (!project2.classList.contains("projectDisplayShow")) {
-      project2.classList.add("projectDisplayShow");
-    } else {
-      project2.classList.remove("projectDisplayShow");
-    }
-  });
+  function ProjectBackground() {
+      const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
 
-  project3.addEventListener("click", function() {
-    if (!project3.classList.contains("projectDisplayShow")) {
-      project3.classList.add("projectDisplayShow");
-    } else {
-      project3.classList.remove("projectDisplayShow");
-    }
-  });
+      const observerID = document.getElementById("observerProjects");
+      const elements = document.querySelectorAll(".projectBG");
+    
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            elements.forEach((el) => el.classList.add("projectBGShow"));
+          }
+          else {
+            elements.forEach((el) => el.classList.remove("projectBGShow"));
+          }
+        });
+      }, observerOptions);
+    
+      observer.observe(observerID);
+  }
 
+  function ProjectBackground2() {
+    const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
 
+    const observerID = document.getElementById("observerProjects");
+    const elements = document.querySelectorAll(".projectBG2");
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          elements.forEach((el) => el.classList.add("projectBG2Show"));
+        }
+        else {
+          elements.forEach((el) => el.classList.remove("projectBG2Show"));
+        }
+      });
+    }, observerOptions);
+  
+    observer.observe(observerID);
+  }
 }
+
+
