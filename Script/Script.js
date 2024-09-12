@@ -661,10 +661,16 @@ function ProjectsContainerFunction() {
 
     const display = document.querySelectorAll(".projectDisplay");
 
-    const projectHeadingBG = document.querySelectorAll(".project-1-heading-BG");
+    const project1HeadingBG = document.querySelectorAll(".project-1-heading-BG");
+    const project2HeadingBG = document.querySelectorAll(".project-2-heading-BG");
+    const project3HeadingBG = document.querySelectorAll(".project-3-heading-BG");
 
     const main3FrontBG = document.querySelector(".main-3-frontBG");
     const main3BackBG = document.querySelector(".main-3-backBG");
+
+    const project1Text = document.querySelector(".project-1-text");
+    const project2Text = document.querySelector(".project-2-text");
+    const project3Text = document.querySelector(".project-3-text");
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -674,7 +680,9 @@ function ProjectsContainerFunction() {
             project2.forEach((el) => el.classList.add("project-2-containerShow")); 
             project3.forEach((el) => el.classList.add("project-3-containerShow")); 
 
-            projectHeadingBG.forEach((e) => e.classList.remove("project1HeadingShow"));
+            project1HeadingBG.forEach((e) => e.classList.remove("project1HeadingShow"));
+            project2HeadingBG.forEach((e) => e.classList.remove("project2HeadingShow"));
+            project3HeadingBG.forEach((e) => e.classList.remove("project3HeadingShow"));
           }
         else 
         { 
@@ -684,7 +692,9 @@ function ProjectsContainerFunction() {
 
           display.forEach((e) => e.classList.remove("projectDisplayShow"));
 
-          projectHeadingBG.forEach((e) => e.classList.remove("project1HeadingShow"));
+          project1HeadingBG.forEach((e) => e.classList.remove("project1HeadingShow"));
+          project2HeadingBG.forEach((e) => e.classList.remove("project2HeadingShow"));
+          project3HeadingBG.forEach((e) => e.classList.remove("project3HeadingShow"));
 
           main3FrontBG.classList.remove("main3FrontBGClick");
           main3BackBG.classList.remove("main3BackBGClick");
@@ -710,23 +720,33 @@ function ProjectsContainerFunction() {
     const main3FrontBG = document.querySelector(".main-3-frontBG");
     const main3BackBG = document.querySelector(".main-3-backBG");
   
+    const project1Text = document.querySelector(".project-1-text");
+    const project2Text = document.querySelector(".project-2-text");
+    const project3Text = document.querySelector(".project-3-text");
+
     project1.addEventListener("click", function() 
     {
       if (!project1.classList.contains("projectDisplayShow")) 
       {
         project1.classList.add("projectDisplayShow"); // fullscreen project
-
+        // -----------------
         project1Heading.classList.add("project1HeadingShow"); // project heading slide in
-
+        // -----------------
         main3FrontBG.classList.add("main3FrontBGClick");  // front background slide in
         main3BackBG.classList.add("main3BackBGClick");  // back backgroundslide in
-      } else { 
+        // -----------------
+        project1Text.classList.add("project1TextClick"); // back background slide out
+      } 
+      else 
+      { 
         project1.classList.remove("projectDisplayShow"); // fullscren OFF project
-
+        // -----------------
         project1Heading.classList.remove("project1HeadingShow"); // project heading slide out
-
+        // -----------------
         main3FrontBG.classList.remove("main3FrontBGClick"); // front background slide out 
         main3BackBG.classList.remove("main3BackBGClick"); // back background slide out
+        // -----------------
+        project1Text.classList.remove("project1TextClick"); // back background slide out
       }
     });
   
@@ -734,20 +754,24 @@ function ProjectsContainerFunction() {
       if (!project2.classList.contains("projectDisplayShow")) 
         {
         project2.classList.add("projectDisplayShow"); // fullscreen project
-
+        // -----------------
         project2Heading.classList.add("project2HeadingShow"); // project heading slide in
-
+        // -----------------
         main3FrontBG.classList.add("main3FrontBGClick");  // front background slide in
         main3BackBG.classList.add("main3BackBGClick");  // back backgrounds lide in
+        // -----------------
+        project2Text.classList.add("project2TextClick"); // back background slide out
       } 
       else  
       {
         project2.classList.remove("projectDisplayShow");  // fullscren OFF project
-
+        // -----------------
         project2Heading.classList.remove("project2HeadingShow");  // project heading slide out
-        
+        // -----------------
         main3FrontBG.classList.remove("main3FrontBGClick"); // front background slide out 
         main3BackBG.classList.remove("main3BackBGClick"); // back background slide out
+        // -----------------
+        project2Text.classList.remove("project2TextClick"); // back background slide out
       }
     });
   
@@ -755,20 +779,24 @@ function ProjectsContainerFunction() {
       if (!project3.classList.contains("projectDisplayShow")) 
         {
         project3.classList.add("projectDisplayShow"); // fullscreen project
-
+        // -----------------
         project3Heading.classList.add("project3HeadingShow"); // project heading slide in
-
+        // -----------------
         main3FrontBG.classList.add("main3FrontBGClick"); // front background slide in
         main3BackBG.classList.add("main3BackBGClick"); // back backgrounds lide in
+        // -----------------
+        project3Text.classList.add("project3TextClick"); // back background slide out
       } 
       else 
       {
         project3.classList.remove("projectDisplayShow"); // fullscren OFF project
-
+        // -----------------
         project3Heading.classList.remove("project3HeadingShow"); // project heading slide out
-
+        // -----------------
         main3FrontBG.classList.remove("main3FrontBGClick"); // front background slide out 
         main3BackBG.classList.remove("main3BackBGClick"); // back background slide out
+        // -----------------
+        project3Text.classList.remove("project3TextClick"); // back background slide out
       }
     });
   }

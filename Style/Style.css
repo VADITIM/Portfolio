@@ -1336,6 +1336,7 @@ body::-webkit-scrollbar {
   width: 99%;
   height: 99%;
   left: -100%;
+  background-color: gray;
   transition: .5s ease all;
 }
 
@@ -1364,7 +1365,6 @@ body::-webkit-scrollbar {
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.26);
   transition: width 0.25s, height 0.25s, top .4s, left .3s, transform .6s, border-radius .5s, z-index .2s 0s;
   cursor: pointer;
-
 }
 
 .project-1 {
@@ -1430,13 +1430,25 @@ body::-webkit-scrollbar {
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 30%;
-  top: 35%;
-  width: 30px;
-  height: 30px;
-  transform: translate(-50%, -50%);
+  left: .5vw;
+  top: 35vh;
+  width: 45%;
+  height: 15vh;
   font-size: 3rem;
   font-family: Mono;
+  background-color: green;
+}
+
+.project-1-heading {
+
+}
+
+.project-2-heading {
+
+}
+
+.project-3-heading {
+
 }
 
 .project1HeadingShow,
@@ -1446,7 +1458,42 @@ body::-webkit-scrollbar {
   transition: .3s s all;
 }
 
+.project-1-text,
+.project-2-text,
+.project-3-text {
+  display: flex;
+  justify-content: center;
+  text-align: end;
+  position: absolute;
+  right: -100vw;
+  top: 5vh;
+  width: 34%;
+  height: 20rem;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: Mono;
+  transform: rotateY(-23deg);
+  color: black;
+  background-color: rgba(43, 35, 35, 0.289);
+  z-index: 30000;
+  transition: right 1s .4s, opacity 1s ease .4s, transform .3s .1s, top .4s .2s;
 
+}
+
+.project-1-text {
+}
+
+.project1TextClick,
+.project2TextClick,
+.project3TextClick  {
+  transition: right 1s ease, opacity 1s ease, transform .3s .9s, top .4s 1s;
+  right: 5vw;
+  transform: translateY(-20px) rotateY(-23deg);
+  top: 8vh;
+
+
+}
 
 
 
@@ -1484,3 +1531,11 @@ body::-webkit-scrollbar {
 .project-2-containerShow { --delay: left 0.3s;}
 .project-3-containerShow { --delay: left 0.4s;}
 
+
+
+
+
+
+  /* transition: right 1s ease, transform .3s .9s, top .4s 1s; Jump in */
+
+  /* transition: right 1s .4s, transform .3s .1s, top .4s .2s; Jump out */
