@@ -655,6 +655,7 @@ function ProjectsContainerFunction() {
     const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
 
     const observerID = document.getElementById("observerAllProjects");
+    
     const project1 = document.querySelectorAll(".project-1-container");
     const project2 = document.querySelectorAll(".project-2-container");
     const project3 = document.querySelectorAll(".project-3-container");
@@ -680,13 +681,13 @@ function ProjectsContainerFunction() {
     const year25 = document.querySelectorAll(".year25");
     const year26 = document.querySelectorAll(".year26");
     const year27 = document.querySelectorAll(".year27");
+    const upcoming = document.querySelectorAll(".upcoming");
 
     const year24Line = document.querySelectorAll(".year-24-line");
     const year25Line = document.querySelectorAll(".year-25-line");
     const upcomingLine = document.querySelectorAll(".upcoming-line");
 
-
-    const upcoming = document.querySelectorAll(".upcoming");
+    const myProjects = document.querySelectorAll(".myProjects");
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -721,6 +722,8 @@ function ProjectsContainerFunction() {
           year24Line.forEach((e) => e.classList.add("year24lineShow"));
           year25Line.forEach((e) => e.classList.add("year25lineShow"));
           upcomingLine.forEach((e) => e.classList.add("upcominglineShow"));
+          myProjects.forEach((e) => e.classList.add("myProjectsShow"));
+
         }
         else 
         { 
@@ -769,128 +772,59 @@ function ProjectsContainerFunction() {
     
   // CLICK FUNCTION
   function ProjectShowcaseOnClick() {
-    const project1 = document.querySelector(".project-1");
-    const project1Heading = document.querySelector(".project-1-heading-BG");
-    const project1Text = document.querySelector(".project-1-text");
-    
-    const project2 = document.querySelector(".project-2");
-    const project2Heading = document.querySelector(".project-2-heading-BG");
-    const project2Text = document.querySelector(".project-2-text");
-
-    const project3 = document.querySelector(".project-3");
-    const project3Heading = document.querySelector(".project-3-heading-BG");
-    const project3Text = document.querySelector(".project-3-text");
-
-    const projectUpcoming1 = document.querySelector(".project-upcoming-1");
-    const projectUpcoming1Heading = document.querySelector(".project-upcoming-1-heading-BG");
-    const projectUpcoming1Text = document.querySelector(".project-upcoming-1-text");
-
+    const projects = [
+      {
+        element: document.querySelector(".project-1"),
+        heading: document.querySelector(".project-1-heading-BG"),
+        text: document.querySelector(".project-1-text"),
+        headingClass: "project1HeadingShow",
+        textClass: "project1TextClick",
+      },
+      {
+        element: document.querySelector(".project-2"),
+        heading: document.querySelector(".project-2-heading-BG"),
+        text: document.querySelector(".project-2-text"),
+        headingClass: "project2HeadingShow",
+        textClass: "project2TextClick",
+      },
+      {
+        element: document.querySelector(".project-3"),
+        heading: document.querySelector(".project-3-heading-BG"),
+        text: document.querySelector(".project-3-text"),
+        headingClass: "project3HeadingShow",
+        textClass: "project3TextClick",
+      },
+      {
+        element: document.querySelector(".project-upcoming-1"),
+        heading: document.querySelector(".project-upcoming-1-heading-BG"),
+        text: document.querySelector(".project-upcoming-1-text"),
+        headingClass: "projectUpcoming1HeadingShow",
+        textClass: "projectUpcoming1TextClick",
+      },
+    ];
+  
     const main3FrontBG = document.querySelector(".main-3-frontBG");
     const main3BackBG = document.querySelector(".main-3-backBG");
+    const myProjects = document.querySelector(".myProjects");
   
-
-    project1.addEventListener("click", function() 
-    {
-      if (!project1.classList.contains("projectDisplayShow")) 
-      {
-        project1.classList.add("projectDisplayShow"); // fullscreen project
-        // -----------------
-        project1Heading.classList.add("project1HeadingShow"); // project heading slide in
-        // -----------------
-        main3FrontBG.classList.add("main3FrontBGClick");  // front background slide in
-        main3BackBG.classList.add("main3BackBGClick");  // back backgroundslide in
-        // -----------------
-        project1Text.classList.add("project1TextClick"); // back background slide out
-      } 
-      else 
-      { 
-        project1.classList.remove("projectDisplayShow"); // fullscren OFF project
-        // -----------------
-        project1Heading.classList.remove("project1HeadingShow"); // project heading slide out
-        // -----------------
-        main3FrontBG.classList.remove("main3FrontBGClick"); // front background slide out 
-        main3BackBG.classList.remove("main3BackBGClick"); // back background slide out
-        // -----------------
-        project1Text.classList.remove("project1TextClick"); // back background slide out
-      }
-    });
+    function toggleProjectDisplay(project) {
+      const { element, heading, text, headingClass, textClass } = project;
+      const isDisplayed = element.classList.contains("projectDisplayShow");
   
-    project2.addEventListener("click", function() {
-      if (!project2.classList.contains("projectDisplayShow")) 
-        {
-        project2.classList.add("projectDisplayShow"); // fullscreen project
-        // -----------------
-        project2Heading.classList.add("project2HeadingShow"); // project heading slide in
-        // -----------------
-        main3FrontBG.classList.add("main3FrontBGClick");  // front background slide in
-        main3BackBG.classList.add("main3BackBGClick");  // back backgrounds lide in
-        // -----------------
-        project2Text.classList.add("project2TextClick"); // back background slide out
-      } 
-      else  
-      {
-        project2.classList.remove("projectDisplayShow");  // fullscren OFF project
-        // -----------------
-        project2Heading.classList.remove("project2HeadingShow");  // project heading slide out
-        // -----------------
-        main3FrontBG.classList.remove("main3FrontBGClick"); // front background slide out 
-        main3BackBG.classList.remove("main3BackBGClick"); // back background slide out
-        // -----------------
-        project2Text.classList.remove("project2TextClick"); // back background slide out
-      }
-    });
+      element.classList.toggle("projectDisplayShow", !isDisplayed);
+      heading.classList.toggle(headingClass, !isDisplayed);
+      text.classList.toggle(textClass, !isDisplayed);
   
-    project3.addEventListener("click", function() {
-      if (!project3.classList.contains("projectDisplayShow")) 
-        {
-        project3.classList.add("projectDisplayShow"); // fullscreen project
-        // -----------------
-        project3Heading.classList.add("project3HeadingShow"); // project heading slide in
-        // -----------------
-        main3FrontBG.classList.add("main3FrontBGClick");  // front background slide in
-        main3BackBG.classList.add("main3BackBGClick");  // back backgrounds lide in
-        // -----------------
-        project3Text.classList.add("project3TextClick"); // back background slide out
-      } 
-      else  
-      {
-        project3.classList.remove("projectDisplayShow");  // fullscren OFF project
-        // -----------------
-        project3Heading.classList.remove("project3HeadingShow");  // project heading slide out
-        // -----------------
-        main3FrontBG.classList.remove("main3FrontBGClick"); // front background slide out 
-        main3BackBG.classList.remove("main3BackBGClick"); // back background slide out
-        // -----------------
-        project3Text.classList.remove("project3TextClick"); // back background slide out
-      }
-    });
+      main3FrontBG.classList.toggle("main3FrontBGClick", !isDisplayed);
+      main3BackBG.classList.toggle("main3BackBGClick", !isDisplayed);
+      myProjects.classList.toggle("myProjectsShow", isDisplayed);
+    }
   
-    projectUpcoming1.addEventListener("click", function() {
-      if (!projectUpcoming1.classList.contains("projectDisplayShow")) 
-        {
-        projectUpcoming1.classList.add("projectDisplayShow"); // fullscreen project
-        // -----------------
-        projectUpcoming1Heading.classList.add("projectUpcoming1HeadingShow"); // project heading slide in
-        // -----------------
-        main3FrontBG.classList.add("main3FrontBGClick"); // front background slide in
-        main3BackBG.classList.add("main3BackBGClick"); // back backgrounds lide in
-        // -----------------
-        projectUpcoming1Text.classList.add("projectUpcoming1TextClick"); // back background slide out
-      } 
-      else 
-      {
-        projectUpcoming1.classList.remove("projectDisplayShow"); // fullscren OFF project
-        // -----------------
-        projectUpcoming1Heading.classList.remove("projectUpcoming1HeadingShow"); // project heading slide out
-        // -----------------
-        main3FrontBG.classList.remove("main3FrontBGClick"); // front background slide out 
-        main3BackBG.classList.remove("main3BackBGClick"); // back background slide out
-        // -----------------
-        projectUpcoming1Text.classList.remove("projectUpcoming1TextClick"); // back background slide out
-      }
+    projects.forEach((project) => {
+      project.element.addEventListener("click", () => toggleProjectDisplay(project));
     });
   }
-
+  
   function ProjectBackground() {
       const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
 
