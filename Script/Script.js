@@ -658,37 +658,77 @@ function ProjectsContainerFunction() {
     const project1 = document.querySelectorAll(".project-1-container");
     const project2 = document.querySelectorAll(".project-2-container");
     const project3 = document.querySelectorAll(".project-3-container");
+    const projectUpcoming1 = document.querySelectorAll(".project-upcoming-1-container");
 
     const display = document.querySelectorAll(".projectDisplay");
 
     const project1HeadingBG = document.querySelectorAll(".project-1-heading-BG");
     const project2HeadingBG = document.querySelectorAll(".project-2-heading-BG");
     const project3HeadingBG = document.querySelectorAll(".project-3-heading-BG");
+    const projectUpcoming1HeadingBG = document.querySelectorAll(".project-upcoming-1-heading-BG");
 
     const main3FrontBG = document.querySelector(".main-3-frontBG");
     const main3BackBG = document.querySelector(".main-3-backBG");
 
-    const project1Text = document.querySelector(".project-1-text");
-    const project2Text = document.querySelector(".project-2-text");
-    const project3Text = document.querySelector(".project-3-text");
+    const project1Text = document.querySelectorAll(".project-1-text");
+    const project2Text = document.querySelectorAll(".project-2-text");
+    const project3Text = document.querySelectorAll(".project-3-text");
+
+    const projectUpcoming1Text = document.querySelectorAll(".project-upcoming-1-text");
+
+    const year24 = document.querySelectorAll(".year24");
+    const year25 = document.querySelectorAll(".year25");
+    const year26 = document.querySelectorAll(".year26");
+    const year27 = document.querySelectorAll(".year27");
+
+    const year24Line = document.querySelectorAll(".year-24-line");
+    const year25Line = document.querySelectorAll(".year-25-line");
+    const upcomingLine = document.querySelectorAll(".upcoming-line");
+
+
+    const upcoming = document.querySelectorAll(".upcoming");
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting)
         { 
-            project1.forEach((el) => el.classList.add("project-1-containerShow")); 
-            project2.forEach((el) => el.classList.add("project-2-containerShow")); 
-            project3.forEach((el) => el.classList.add("project-3-containerShow")); 
+          project1.forEach((el) => el.classList.add("project-1-containerShow")); 
+          project2.forEach((el) => el.classList.add("project-2-containerShow")); 
+          project3.forEach((el) => el.classList.add("project-3-containerShow")); 
 
-            project1HeadingBG.forEach((e) => e.classList.remove("project1HeadingShow"));
-            project2HeadingBG.forEach((e) => e.classList.remove("project2HeadingShow"));
-            project3HeadingBG.forEach((e) => e.classList.remove("project3HeadingShow"));
-          }
+          projectUpcoming1.forEach((el) => el.classList.add("project-upcoming-1-containerShow")); 
+
+          project1HeadingBG.forEach((e) => e.classList.remove("project1HeadingShow"));
+          project2HeadingBG.forEach((e) => e.classList.remove("project2HeadingShow"));
+          project3HeadingBG.forEach((e) => e.classList.remove("project3HeadingShow"));
+          
+          projectUpcoming1HeadingBG.forEach((e) => e.classList.remove("projectUpcoming1HeadingShow"));
+
+          project1Text.forEach((e) => e.classList.remove("project1TextHide"));
+          project2Text.forEach((e) => e.classList.remove("project2TextHide"));
+          project3Text.forEach((e) => e.classList.remove("project3TextHide"));
+
+          project1Text.forEach((e) => e.classList.add("project-1-text"));
+          project2Text.forEach((e) => e.classList.add("project-2-text"));
+
+          projectUpcoming1Text.forEach((e) => e.classList.remove("projectUpcoming1TextHide"));
+          projectUpcoming1Text.forEach((e) => e.classList.add("project-upcoming-1-text"));
+
+          year24.forEach((e) => e.classList.add("year24Show"));
+          year25.forEach((e) => e.classList.add("year25Show"));
+          upcoming.forEach((e) => e.classList.add("upcomingShow"));
+
+          year24Line.forEach((e) => e.classList.add("year24lineShow"));
+          year25Line.forEach((e) => e.classList.add("year25lineShow"));
+          upcomingLine.forEach((e) => e.classList.add("upcominglineShow"));
+        }
         else 
         { 
           project1.forEach((el) => el.classList.remove("project-1-containerShow")); 
           project2.forEach((el) => el.classList.remove("project-2-containerShow")); 
           project3.forEach((el) => el.classList.remove("project-3-containerShow")); 
+          
+          projectUpcoming1.forEach((el) => el.classList.remove("project-upcoming-1-containerShow")); 
 
           display.forEach((e) => e.classList.remove("projectDisplayShow"));
 
@@ -696,9 +736,30 @@ function ProjectsContainerFunction() {
           project2HeadingBG.forEach((e) => e.classList.remove("project2HeadingShow"));
           project3HeadingBG.forEach((e) => e.classList.remove("project3HeadingShow"));
 
+          projectUpcoming1HeadingBG.forEach((e) => e.classList.remove("projectUpcoming1HeadingShow"));
+
           main3FrontBG.classList.remove("main3FrontBGClick");
           main3BackBG.classList.remove("main3BackBGClick");
   
+          project1Text.forEach((e) => e.classList.add("project1TextHide"));
+          project2Text.forEach((e) => e.classList.add("project2TextHide"));
+          project3Text.forEach((e) => e.classList.add("project3TextHide"));
+          
+          project1Text.forEach((e) => e.classList.remove("project1TextClick"));
+          project2Text.forEach((e) => e.classList.remove("project2TextClick"));
+          project3Text.forEach((e) => e.classList.remove("project3TextClick"));
+
+          projectUpcoming1Text.forEach((e) => e.classList.add("projectUpcoming1TextHide"));
+          projectUpcoming1Text.forEach((e) => e.classList.remove("projectUpcoming1TextClick"));
+
+          year24.forEach((e) => e.classList.remove("year24Show"));
+          year25.forEach((e) => e.classList.remove("year25Show"));
+          upcoming.forEach((e) => e.classList.remove("upcomingShow"));
+
+          year24Line.forEach((e) => e.classList.remove("year24lineShow"));
+          year25Line.forEach((e) => e.classList.remove("year25lineShow"));
+          upcomingLine.forEach((e) => e.classList.remove("upcominglineShow"));
+
         }
       });
     }, observerOptions);
@@ -710,19 +771,23 @@ function ProjectsContainerFunction() {
   function ProjectShowcaseOnClick() {
     const project1 = document.querySelector(".project-1");
     const project1Heading = document.querySelector(".project-1-heading-BG");
+    const project1Text = document.querySelector(".project-1-text");
     
     const project2 = document.querySelector(".project-2");
     const project2Heading = document.querySelector(".project-2-heading-BG");
+    const project2Text = document.querySelector(".project-2-text");
 
     const project3 = document.querySelector(".project-3");
     const project3Heading = document.querySelector(".project-3-heading-BG");
+    const project3Text = document.querySelector(".project-3-text");
+
+    const projectUpcoming1 = document.querySelector(".project-upcoming-1");
+    const projectUpcoming1Heading = document.querySelector(".project-upcoming-1-heading-BG");
+    const projectUpcoming1Text = document.querySelector(".project-upcoming-1-text");
 
     const main3FrontBG = document.querySelector(".main-3-frontBG");
     const main3BackBG = document.querySelector(".main-3-backBG");
   
-    const project1Text = document.querySelector(".project-1-text");
-    const project2Text = document.querySelector(".project-2-text");
-    const project3Text = document.querySelector(".project-3-text");
 
     project1.addEventListener("click", function() 
     {
@@ -782,21 +847,46 @@ function ProjectsContainerFunction() {
         // -----------------
         project3Heading.classList.add("project3HeadingShow"); // project heading slide in
         // -----------------
-        main3FrontBG.classList.add("main3FrontBGClick"); // front background slide in
-        main3BackBG.classList.add("main3BackBGClick"); // back backgrounds lide in
+        main3FrontBG.classList.add("main3FrontBGClick");  // front background slide in
+        main3BackBG.classList.add("main3BackBGClick");  // back backgrounds lide in
         // -----------------
         project3Text.classList.add("project3TextClick"); // back background slide out
       } 
-      else 
+      else  
       {
-        project3.classList.remove("projectDisplayShow"); // fullscren OFF project
+        project3.classList.remove("projectDisplayShow");  // fullscren OFF project
         // -----------------
-        project3Heading.classList.remove("project3HeadingShow"); // project heading slide out
+        project3Heading.classList.remove("project3HeadingShow");  // project heading slide out
         // -----------------
         main3FrontBG.classList.remove("main3FrontBGClick"); // front background slide out 
         main3BackBG.classList.remove("main3BackBGClick"); // back background slide out
         // -----------------
         project3Text.classList.remove("project3TextClick"); // back background slide out
+      }
+    });
+  
+    projectUpcoming1.addEventListener("click", function() {
+      if (!projectUpcoming1.classList.contains("projectDisplayShow")) 
+        {
+        projectUpcoming1.classList.add("projectDisplayShow"); // fullscreen project
+        // -----------------
+        projectUpcoming1Heading.classList.add("projectUpcoming1HeadingShow"); // project heading slide in
+        // -----------------
+        main3FrontBG.classList.add("main3FrontBGClick"); // front background slide in
+        main3BackBG.classList.add("main3BackBGClick"); // back backgrounds lide in
+        // -----------------
+        projectUpcoming1Text.classList.add("projectUpcoming1TextClick"); // back background slide out
+      } 
+      else 
+      {
+        projectUpcoming1.classList.remove("projectDisplayShow"); // fullscren OFF project
+        // -----------------
+        projectUpcoming1Heading.classList.remove("projectUpcoming1HeadingShow"); // project heading slide out
+        // -----------------
+        main3FrontBG.classList.remove("main3FrontBGClick"); // front background slide out 
+        main3BackBG.classList.remove("main3BackBGClick"); // back background slide out
+        // -----------------
+        projectUpcoming1Text.classList.remove("projectUpcoming1TextClick"); // back background slide out
       }
     });
   }
