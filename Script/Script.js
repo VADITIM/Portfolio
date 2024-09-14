@@ -403,10 +403,11 @@ AboutMeOut2();
         const TopRight = document.querySelectorAll(".profile2");
         const BottomLeft = document.querySelectorAll(".profile3");
         const BottomRight = document.querySelectorAll(".profile4");
-        const profile1Hover = document.querySelectorAll(".profile1Hover");
-        const profile2Hover = document.querySelectorAll(".profile2Hover");
-        const profile3Hover = document.querySelectorAll(".profile3Hover");
-        const profile4Hover = document.querySelectorAll(".profile4Hover");
+
+        const TopLeftBack = document.querySelectorAll(".profile1Backside");	
+        const TopRightBack = document.querySelectorAll(".profile2Backside");	
+        const BottomLeftBack = document.querySelectorAll(".profile3Backside");
+        const BottomRightBack = document.querySelectorAll(".profile4Backside");
       
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
@@ -415,22 +416,22 @@ AboutMeOut2();
               TopRight.forEach((el) => el.classList.add("profile2Hidden"));
               BottomLeft.forEach((el) => el.classList.add("profile3Hidden"));
               BottomRight.forEach((el) => el.classList.add("profile4Hidden"));
-      
-              profile1Hover.forEach((el) => el.classList.add("profile1HoverHidden"));
-              profile2Hover.forEach((el) => el.classList.add("profile2HoverHidden"));
-              profile3Hover.forEach((el) => el.classList.add("profile3HoverHidden"));
-              profile4Hover.forEach((el) => el.classList.add("profile4HoverHidden"));
+              
+              TopLeft.forEach((el) => el.classList.remove("profile1Click"));
+              TopRight.forEach((el) => el.classList.remove("profile2Click"));
+              BottomLeft.forEach((el) => el.classList.remove("profile3Click"));
+              BottomRight.forEach((el) => el.classList.remove("profile4Click"));
+
+              TopLeftBack.forEach((el) => el.classList.remove("profile1BacksideClick"));
+              TopRightBack.forEach((el) => el.classList.remove("profile2BacksideClick"));
+              BottomLeftBack.forEach((el) => el.classList.remove("profile3BacksideClick"));
+              BottomRightBack.forEach((el) => el.classList.remove("profile4BacksideClick"));
             } 
             else {
               TopLeft.forEach((el) => el.classList.remove("profile1Hidden"));
               TopRight.forEach((el) => el.classList.remove("profile2Hidden"));
               BottomLeft.forEach((el) => el.classList.remove("profile3Hidden"));
               BottomRight.forEach((el) => el.classList.remove("profile4Hidden"));
-      
-              profile1Hover.forEach((el) => el.classList.remove("profile1HoverHidden"));
-              profile2Hover.forEach((el) => el.classList.remove("profile2HoverHidden"));
-              profile3Hover.forEach((el) => el.classList.remove("profile3HoverHidden"));
-              profile4Hover.forEach((el) => el.classList.remove("profile4HoverHidden"));
             }
           });
         }, observerOptions);
@@ -483,10 +484,11 @@ AboutMeOut2();
       const TopRight = document.querySelectorAll(".profile2");
       const BottomLeft = document.querySelectorAll(".profile3");
       const BottomRight = document.querySelectorAll(".profile4");
-      const profile1Hover = document.querySelectorAll(".profile1Hover");
-      const profile2Hover = document.querySelectorAll(".profile2Hover");
-      const profile3Hover = document.querySelectorAll(".profile3Hover");
-      const profile4Hover = document.querySelectorAll(".profile4Hover");
+
+      const TopLeftBack = document.querySelectorAll(".profile1Backside");
+      const TopRightBack = document.querySelectorAll(".profile2Backside");
+      const BottomLeftBack = document.querySelectorAll(".profile3Backside");
+      const BottomRightBack = document.querySelectorAll(".profile4Backside");
     
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -495,22 +497,23 @@ AboutMeOut2();
             TopRight.forEach((el) => el.classList.add("profile2Out"));
             BottomLeft.forEach((el) => el.classList.add("profile3Out"));
             BottomRight.forEach((el) => el.classList.add("profile4Out"));
-    
-            profile1Hover.forEach((el) => el.classList.add("profile1HoverOut"));
-            profile2Hover.forEach((el) => el.classList.add("profile2HoverOut"));
-            profile3Hover.forEach((el) => el.classList.add("profile3HoverOut"));
-            profile4Hover.forEach((el) => el.classList.add("profile4HoverOut"));
+
+            TopLeft.forEach((el) => el.classList.remove("profile1Click"));
+            TopRight.forEach((el) => el.classList.remove("profile2Click"));
+            BottomLeft.forEach((el) => el.classList.remove("profile3Click"));
+            BottomRight.forEach((el) => el.classList.remove("profile4Click"));
+
+            TopLeftBack.forEach((el) => el.classList.remove("profile1BacksideClick"));
+            TopRightBack.forEach((el) => el.classList.remove("profile2BacksideClick"));
+            BottomLeftBack.forEach((el) => el.classList.remove("profile3BacksideClick"));
+            BottomRightBack.forEach((el) => el.classList.remove("profile4BacksideClick"));
+
           } 
           else {
             TopLeft.forEach((el) => el.classList.remove("profile1Out"));
             TopRight.forEach((el) => el.classList.remove("profile2Out"));
             BottomLeft.forEach((el) => el.classList.remove("profile3Out"));
             BottomRight.forEach((el) => el.classList.remove("profile4Out"));
-    
-            profile1Hover.forEach((el) => el.classList.remove("profile1HoverOut"));
-            profile2Hover.forEach((el) => el.classList.remove("profile2HoverOut"));
-            profile3Hover.forEach((el) => el.classList.remove("profile3HoverOut"));
-            profile4Hover.forEach((el) => el.classList.remove("profile4HoverOut"));
           }
         });
       }, observerOptions);
@@ -527,7 +530,12 @@ AboutMeOut2();
       const TopRight = document.querySelectorAll(".box_top_right");
       const BottomLeft = document.querySelectorAll(".box_bottom_left");
       const BottomRight = document.querySelectorAll(".box_bottom_right");
-    
+
+      const TopLeftBack = document.querySelectorAll(".profile1Backside");
+      const TopRightBack = document.querySelectorAll(".profile2Backside");
+      const BottomLeftBack = document.querySelectorAll(".profile3Backside");
+      const BottomRightBack = document.querySelectorAll(".profile4Backside");
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -535,6 +543,12 @@ AboutMeOut2();
             TopRight.forEach((el) => el.classList.add("boxTopRightOut"));
             BottomLeft.forEach((el) => el.classList.add("boxBottomLeftOut"));
             BottomRight.forEach((el) => el.classList.add("boxBottomRightOut"));
+            
+            TopLeftBack.forEach((el) => el.classList.remove("profile1BacksideClick"));
+            TopRightBack.forEach((el) => el.classList.remove("profile2BacksideClick"));
+            BottomLeftBack.forEach((el) => el.classList.remove("profile3BacksideClick"));
+            BottomRightBack.forEach((el) => el.classList.remove("profile4BacksideClick"));
+
           } 
           else {
             TopLeft.forEach((el) => el.classList.remove("boxTopLeftOut"));
@@ -547,12 +561,45 @@ AboutMeOut2();
     
       observer.observe(observerID);
       }
-
-
       BoxFrontOut();
       BoxBackOut();
   }
   ProfileBoxOut();
+
+  function ProfileClick() {
+
+    const TopLeft = document.querySelector(".profile1");
+    const TopRight = document.querySelector(".profile2");
+    const BottomLeft = document.querySelector(".profile3");
+    const BottomRight = document.querySelector(".profile4");
+
+    const TopLeftBack = document.querySelector(".profile1Backside");
+    const TopRightBack = document.querySelector(".profile2Backside");
+    const BottomLeftBack = document.querySelector(".profile3Backside");
+    const BottomRightBack = document.querySelector(".profile4Backside");
+
+    TopLeft.addEventListener("click", () => {
+      TopLeft.classList.toggle("profile1Click");
+      TopLeftBack.classList.toggle("profile1BacksideClick");
+    });
+
+    TopRight.addEventListener("click", () => {
+      TopRight.classList.toggle("profile2Click");
+      TopRightBack.classList.toggle("profile2BacksideClick");
+    });
+
+    BottomLeft.addEventListener("click", () => {
+      BottomLeft.classList.toggle("profile3Click");
+      BottomLeftBack.classList.toggle("profile3BacksideClick");
+    });
+
+    BottomRight.addEventListener("click", () => {
+      BottomRight.classList.toggle("profile4Click");
+      BottomRightBack.classList.toggle("profile4BacksideClick");
+    });
+
+  }
+  ProfileClick();
 
 
     function ScrollKeynotes() {
