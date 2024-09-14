@@ -33,6 +33,18 @@
   }
 }
 
+@keyframes floatContactMe {
+  0% {
+      transform: translate(-50%, -50%) rotateY(-40deg); /* Start position */
+  }
+  50% {
+      transform: translate(-50%, -52%) rotateY(-40deg); /* Move up by 20px */
+  }
+  100% {
+      transform: translate(-50%, -50%) rotateY(-40deg); /* Move back to the start position */
+  }
+}
+
 
 html {
     scroll-behavior: smooth;
@@ -110,7 +122,9 @@ body::-webkit-scrollbar {
 
 #observerProjects,
 #observerMyProjects,
-#observerAllProjects {
+#observerAllProjects,
+#observerContactMe,
+#observerContactMeOut{
   display: flex;
   justify-content: center;
   position: absolute;
@@ -119,8 +133,17 @@ body::-webkit-scrollbar {
   background-color: rgba(153, 51, 51, 0.425);
 }
 
+#observerContactMeOut {
+  top: 205vh;
+  opacity: 0;
+  background-color: rgba(0, 0, 255, 0.284);
+}
 
-
+#observerContactMe {
+  top: 160vh;
+  opacity: 0;
+  background-color: rgba(0, 0, 255, 0.284);
+}
 
 #observerProjects {
   top: 220vh;
@@ -697,7 +720,7 @@ body::-webkit-scrollbar {
   font-size: 5rem;
   color: #f2f2f2;
   color: #4076fa;
-  transform: rotateY(0) rotateX(0);
+  transform: rotateY(40deg) rotateX(0);
   transition: 2s ease all;
 }
 
@@ -757,19 +780,6 @@ body::-webkit-scrollbar {
   z-index: 2;
 }
 
-
-.lineProfileLeft {
-  width: .3vh;
-  height: 67vh;
-  position: absolute;
-  top: -22vh;
-  left: 2vh;
-  background-color: #76FA40;
-  transform: rotateX(-30deg) rotateY(-50deg) rotateZ(0deg) ;
-  transition: .8s ease all .3s;
-  z-index: -3;
-  opacity: 0;
-}
 
 .box_bottom_left {
   width: 30vh;
@@ -862,16 +872,12 @@ body::-webkit-scrollbar {
 
 .profile1,
 .profile1Backside,
-.profile1Hover,
 .profile3,
 .profile3Backside,
-.profile3Hover,
 .profile4,
 .profile4Backside,
-.profile4Hover,
 .profile2,
-.profile2Backside,
-.profile2Hover {
+.profile2Backside {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1065,123 +1071,89 @@ body::-webkit-scrollbar {
 
 
 
-
-
-
-
-/* 
-.rightLineRight {
-  width: 2px;
-  height: 33vh;
+.contact-me {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
+  width: 7vh;
+  height: 20%;
+  top: 45vh;
+  right: 100%;
+  transform: translate(-50%, -50%) rotateY(-40deg);
+  scale: 2;
+  z-index: 30000;
+  /* background-color: #4075fa60; */
+  transition: .5s ease;
+  animation: floatContactMe 3s ease-in-out infinite ;
+}
+
+.contactMeShow {
+  right: 10%;
+}
+
+.contactMeOut {
+  top: -200%;
+}
+
+.contact-me > p {
+  font-family: Mono;
+  font-size: 1rem;
+  color: white;
+  position: absolute;
+  width: 180%;
   top: -30%;
-  right: -20%;
-  transform: translate(-50%, -50%);
-  background-color: #76FA40;
+  transform: rotateY(40deg);
 }
 
-.rightLineLeft {
-  width: 2px;
-  height: 30vh;
+.github {
+  display: flex;
+  justify-content: center;
   position: absolute;
-  top: -5%;
-  right: 45%;
-  transform: translate(-50%, -50%);
-  background-color: #76FA40;
+  width: 100%;
+  height: 30%;
+  left: 7.5%;
+  top: 10%;
+  transform: rorateY(0deg);
+  background-image: url("../Media/img/github.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: .7s;
 }
 
-.rightLineBottom {
-  width: 4vw;
-  height: 2px;
+.githubClick {
+  transform: rotateY(360deg);
+}
+
+.github:hover {
+  scale: 1.1;
+}
+
+.telegram {
+  display: flex;
+  justify-content: center;
   position: absolute;
-  top: 12%;
-  right: -18%;
-  transform: translate(-50%, -50%);
-  background-color: #76FA40;
-  transform: rotateX(30deg) rotateY(-50deg) rotateZ(0deg) ;
+  width: 100%;
+  height: 30%;
+  top: 45%;
+  left: 7.5%;
+  background-image: url("../Media/img/telegram.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: .3s;
+}
+
+.telegramClick {
+  transform: rotateY(360deg);
+}
+
+.telegram:hover {
+  scale: 1.1;
 }
 
 
 
-.bRightLineTop {
-  width: 13vw;
-  height: 2px;
-  position: absolute;
-  top: 29%;
-  right: -18%;
-  transform: translate(-50%, -50%);
-  background-color: #76FA40;
-  transform: rotateX(30deg) rotateY(-50deg) rotateZ(0deg) ;
-}
 
-.bRightLineRight {
-  width: 2px;
-  height: 35vh;
-  position: absolute;
-  top: 60%;
-  right: -12%;
-  transform: translate(-50%, -50%);
-  background-color: #76FA40;
-}
-
-.bRightLineBottom {
-  width: 8vw;
-  height: 2px;
-  position: absolute;
-  top: 124%;
-  right: 18%;
-  transform: translate(-50%, -50%);
-  background-color: #76FA40;
-  transform: rotateX(30deg) rotateY(-50deg) rotateZ(0deg) ;
-}
-
-
-.bLeftLineTop {
-  width: 20vw;
-  height: 2px;
-  position: absolute;
-  top: 35%;
-  left: -20%;
-  transform: translate(-50%, -50%);
-  background-color: #76FA40;
-  transform: rotateX(-30deg) rotateY(-50deg) rotateZ(0deg) ;
-}
-
-.bLeftLineRight {
-  width: 2px;
-  height: 26vh;
-  position: absolute;
-  top: 105%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #76FA40;
-
-}
-
-.bLeftLineBottom {
-  width: 20vw;
-  height: 2px;
-  position: absolute;
-  top: 115%;
-  left: -20%;
-  transform: translate(-50%, -50%);
-  background-color: #76FA40;
-  transform: rotateX(-30deg) rotateY(-50deg) rotateZ(0deg) ;
-
-}
-
-
-.bottomCenter {
-  width: 2px;
-  height: 33vh;
-  position: absolute;
-  top: 60%;
-  left: -12%;
-  transform: translate(-50%, -50%);
-  background-color: #76FA40;
-}
-
- */
 
 
 
@@ -1417,7 +1389,7 @@ body::-webkit-scrollbar {
   background-position: center;
   border-radius: 3px;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.26);
-  transition: width 0.25s, height 0.25s, top .4s, left .3s, transform .6s, border-radius .5s, z-index .2s 0s;
+  transition: width 0.25s, height 0.25s, top .4s, left .3s, transform .6s, border-radius .5s, z-index .2s 0s, scale .2s;
   cursor: pointer;
 }
 
@@ -1445,6 +1417,13 @@ body::-webkit-scrollbar {
   left: 44.5%;
 }
 
+.project-1:hover,
+.project-2:hover,
+.project-3:hover,
+.project-upcoming-1:hover {
+  scale: 1.004;
+}
+
 .project-upcoming-1 {
   background-image: url(../Media/img/anomaly2.JPG);
   background-position-y: 23%;
@@ -1460,7 +1439,7 @@ body::-webkit-scrollbar {
   top: 100%;
   left: 50%;
   transform: translate(-50%, -100%);
-  transition: width 0.75s, height 0.75s, top .2s, left .35s, transform .4s, border-radius 1s, z-index .5s;
+  transition: width 0.75s, height 0.75s, top .2s, left .35s, transform .4s, border-radius 1s, z-index .5s, scale .2s;
   z-index: 11;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.26);
   border-radius: 0px;
@@ -1547,7 +1526,7 @@ body::-webkit-scrollbar {
   right: 5vw;
   transform: translateY(-20px) rotateY(-23deg);
   top: 8vh;
-  transition: right 1.2s ,  top .1s .2s;
+  transition: right 1.2s ,top .1s .2s;
 }
 
 .project1TextHide,

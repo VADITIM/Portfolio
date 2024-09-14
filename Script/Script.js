@@ -327,7 +327,69 @@ AboutMeOut2();
   BlueBackHold();
 
 
+  function ContactMe() {
+    const ObserverOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
 
+    const observerID = document.getElementById("observerContactMe");
+    const elements = document.querySelectorAll(".contact-me");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          elements.forEach((el) => el.classList.add("contactMeShow"));
+        } 
+        else {
+          elements.forEach((el) => el.classList.remove("contactMeShow"));
+        }
+      });
+    }, ObserverOptions);
+    observer.observe(observerID);
+  }
+  ContactMe();
+
+  function ContactMeOut() {
+    const ObserverOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
+
+    const observerID = document.getElementById("observerContactMeOut");
+    const elements = document.querySelectorAll(".contact-me");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          elements.forEach((el) => el.classList.add("contactMeOut"));
+        } 
+        else {
+          elements.forEach((el) => el.classList.remove("contactMeOut"));
+        }
+      });
+    }, ObserverOptions);
+    observer.observe(observerID);
+  }
+  ContactMeOut();
+
+  function GitHubClick() {
+    const github = document.querySelector(".github");
+
+    github.addEventListener("click", () => {
+      github.classList.add("githubClick");
+      setTimeout(() => {
+        github.classList.remove("githubClick");
+      }, 1000);
+    });
+  }
+  GitHubClick();
+
+  function TelegramClick() {
+    const telegram = document.querySelector(".telegram");
+
+    telegram.addEventListener("click", () => {
+      telegram.classList.add("telegramClick");
+      setTimeout(() => {
+        telegram.classList.remove("telegramClick");
+      }, 1000);
+    });
+  }
+  TelegramClick();
 
 
     function Logo() {
