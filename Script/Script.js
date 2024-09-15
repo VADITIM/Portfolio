@@ -374,7 +374,7 @@ AboutMeOut2();
       github.classList.add("githubClick");
       setTimeout(() => {
         github.classList.remove("githubClick");
-      }, 1000);
+      }, 500);
     });
   }
   GitHubClick();
