@@ -664,27 +664,48 @@ AboutMeOut2();
   ProfileClick();
 
 
-    function ScrollKeynotes() {
-        const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
+  function Introduction() {
+    const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
 
-        const observerID = document.getElementById("observerKeynotes");
-        const elements = document.querySelectorAll(".keynotes");
-      
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              elements.forEach((el) => el.classList.add("keynotesHidden"));
-            }
-            else {
-              elements.forEach((el) => el.classList.remove("keynotesHidden"));
-            }
-          });
-        }, observerOptions);
-      
-        observer.observe(observerID);
-    }
-    LogoOut();
-    ScrollKeynotes();
+    const observerID = document.getElementById("observerIntroduction");
+    const elements = document.querySelectorAll(".introduction");
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          elements.forEach((el) => el.classList.add("introductionHidden"));
+        }
+        else {
+          elements.forEach((el) => el.classList.remove("introductionHidden"));
+        }
+      });
+    }, observerOptions);
+  
+    observer.observe(observerID);
+}
+
+  function introductionOut() {
+    const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
+
+    const observerID = document.getElementById("observerIntroductionOut");
+    const elements = document.querySelectorAll(".introduction");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          elements.forEach((el) => el.classList.add("introductionOut"));
+        }
+        else {
+          elements.forEach((el) => el.classList.remove("introductionOut"));
+        }
+      });
+    }, observerOptions);
+
+    observer.observe(observerID);
+  }
+  LogoOut();
+    Introduction();
+    introductionOut();
     Logo();
     AboutMe();
     AboutMeBG();
