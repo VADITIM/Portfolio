@@ -69,6 +69,33 @@
   }
 }
 
+@keyframes mainContainerBG {
+  0% {
+      background-position-y: 170%; /* Start position */
+      transform: translateX(10%);
+  }
+  50% {
+      background-position-y: 120%; /* Move up by 20px */
+      transform: translateX(0%);
+  }
+  100% {
+      background-position-y: 170%; /* Move back to the start position */
+      transform: translateX(10%);
+  }
+}
+
+@keyframes main3ContainerBG {
+  0% {
+
+  }
+  50% {
+
+  }
+  100% {
+
+  }
+}
+
 
 html {
     scroll-behavior: smooth;
@@ -96,7 +123,7 @@ body {
   padding: 0;
   user-select: none;
   
-  cursor: none;
+  /* cursor: none; */
 }
 
 body::-webkit-scrollbar {
@@ -321,7 +348,7 @@ body::-webkit-scrollbar {
 
 /* CURSOR ----------------------- */
 /* CURSOR ------------------------------------------------------------------------------------------- */
-.cursor_dot,
+/* .cursor_dot,
 .cursor_outline {
  position: fixed;
  top: 0;
@@ -374,7 +401,7 @@ body::-webkit-scrollbar {
   border: 2px solid white;
   background-color: rgba(255, 255, 255, 0);
   transition: width .3s ease, height .3s ease, background-color 0s ease;
-}
+} */
 /* CURSOR ------------------------------------------------------------------------------------------- */
 /* CURSOR ----------------------- */
 
@@ -388,6 +415,16 @@ body::-webkit-scrollbar {
   overflow: visible;
   perspective: 1000px;
   /* background-color: green; */
+}
+
+.mainBackground {
+  background-image: url("../Media/img/svg/oooscillate.svg");
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 80%;
+  animation: mainContainerBG 30s ease-in-out infinite;
 }
 
 .name {
@@ -708,19 +745,6 @@ body::-webkit-scrollbar {
   perspective: 1000px;
   /* background-color: rgba(0, 110, 255, 0.144); */
 }
-/* 
-.main2HoverHold {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 90vh;
-  background-color: green;
-  position: absolute;
-  left: 50%;
-  top: 30%;
-  transform: translate(-50%, -50%);
-} */
 
 
 .about-backBG {
@@ -1341,9 +1365,22 @@ body::-webkit-scrollbar {
   height: 100%;
   position: absolute;
   top: 165vh;
-  overflow: visible;
   perspective: 1000px;
   z-index: 1;
+}
+
+.main3Background {
+  background-image: url("../Media/img/svg/ttten.svg");
+  width: 120%;
+  height: 97%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: center;
+  animation: main3ContainerBG 10s ease-in-out infinite;
+  z-index: -1;
+  transform: rotateX(30deg) translateX(-5%) translateY(-1.5%);
+  padding: 0;
+  margin: 0;
 }
 
 .main-3-frontBG {
@@ -1633,7 +1670,7 @@ body::-webkit-scrollbar {
 .project-upcoming-1-heading-BG {
   display: flex;
   height: 3rem;
-  width: 100vh;
+  width: 80vh;
   position: absolute;
   left: -80vw;
   top: 20vh;
@@ -1665,7 +1702,7 @@ body::-webkit-scrollbar {
 .project2HeadingShow,
 .project3HeadingShow,
 .projectUpcoming1HeadingShow {
-  left: 30vw;
+  left: 25vw;
   transition: .3s all .2s;
 }
 
@@ -1912,12 +1949,44 @@ body::-webkit-scrollbar {
   }
   
 
-.genre {
-  font-family: Mono;
-  font-size: 1.8rem;
-}
+  .genre {
+    font-family: Mono;
+    font-size: 1.8rem;
+  }
 
+  .project-1-heading-BG,
+  .project-2-heading-BG,
+  .project-3-heading-BG,
+  .project-upcoming-1-heading-BG {
+    font-size: 4rem;
+}
   
+  .project1Details,
+  .project2Details,
+  .project3Details,
+  .projectUpcoming1Details {
+    scale: 0.6;
+  }
+
+  .project1Genre,
+  .project2Genre,
+  .project3Genre,
+  .projectUpcoming1Genre {
+    scale: .9;
+  }
+
+  .project1GenreClick,
+  .project2GenreClick,
+  .project3GenreClick,
+  .projectUpcoming1GenreClick {
+    right: 1vw;
+    transform: translateY(-20px) rotateY(-23deg);
+  }
+  
+  .main3Background {
+    transform: rotateX(30deg) translateX(-5%);
+  }
+
 }
 
 
