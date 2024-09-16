@@ -874,6 +874,18 @@ function ProjectsContainerFunction() {
 
     const myProjects = document.querySelectorAll(".myProjects");
 
+    const details1 = document.querySelectorAll(".project1Details");
+    const details2 = document.querySelectorAll(".project2Details");
+    const details3 = document.querySelectorAll(".project3Details");
+    const detailsUpcoming1 = document.querySelectorAll(".projectUpcoming1Details");
+
+    const genre1 = document.querySelectorAll(".project1Genre");
+    const genre2 = document.querySelectorAll(".project2Genre");
+    const genre3 = document.querySelectorAll(".project3Genre");
+    const genreUpcoming1 = document.querySelectorAll(".projectUpcoming1Genre");
+
+    const download2 = document.querySelectorAll(".project2Download");
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting)
@@ -908,6 +920,18 @@ function ProjectsContainerFunction() {
           year25Line.forEach((e) => e.classList.add("year25lineShow"));
           upcomingLine.forEach((e) => e.classList.add("upcominglineShow"));
           myProjects.forEach((e) => e.classList.add("myProjectsShow"));
+
+          details1.forEach((e) => e.classList.remove("project1DetailsClick"));
+          details2.forEach((e) => e.classList.remove("project2DetailsClick"));
+          details3.forEach((e) => e.classList.remove("project3DetailsClick"));
+          detailsUpcoming1.forEach((e) => e.classList.remove("projectUpcoming1DetailsClick"));
+
+          genre1.forEach((e) => e.classList.remove("project1GenreClick"));
+          genre2.forEach((e) => e.classList.remove("project2GenreClick"));
+          genre3.forEach((e) => e.classList.remove("project3GenreClick"));
+          genreUpcoming1.forEach((e) => e.classList.remove("projectUpcoming1GenreClick"));
+
+          download2.forEach((e) => e.classList.remove("project2DownloadClick"));
 
         }
         else 
@@ -948,6 +972,18 @@ function ProjectsContainerFunction() {
           year25Line.forEach((e) => e.classList.remove("year25lineShow"));
           upcomingLine.forEach((e) => e.classList.remove("upcominglineShow"));
 
+          details1.forEach((e) => e.classList.remove("project1DetailsClick"));
+          details2.forEach((e) => e.classList.remove("project2DetailsClick"));
+          details3.forEach((e) => e.classList.remove("project3DetailsClick"));
+          detailsUpcoming1.forEach((e) => e.classList.remove("projectUpcoming1DetailsClick"));
+          
+          genre1.forEach((e) => e.classList.remove("project1GenreClick"));
+          genre2.forEach((e) => e.classList.remove("project2GenreClick"));
+          genre3.forEach((e) => e.classList.remove("project3GenreClick"));
+          genreUpcoming1.forEach((e) => e.classList.remove("projectUpcoming1GenreClick"));
+
+          download2.forEach((e) => e.classList.remove("project2DownloadClick"));
+
         }
       });
     }, observerOptions);
@@ -963,36 +999,52 @@ function ProjectsContainerFunction() {
         heading: document.querySelector(".project-1-heading-BG"),
         text: document.querySelector(".project-1-text"),
         details: document.querySelector(".project1Details"),
+        genre: document.querySelector(".project1Genre"),
+        download: document.querySelector(".project1Download"),
         headingClass: "project1HeadingShow",
         textClass: "project1TextClick",
         detailsClass: "project1DetailsClick",        
+        genreClass: "project1GenreClick",
+        downloadClass: "project1DownloadClick",
       },
       {
         element: document.querySelector(".project-2"),
         heading: document.querySelector(".project-2-heading-BG"),
         text: document.querySelector(".project-2-text"),
         details: document.querySelector(".project2Details"),
+        genre: document.querySelector(".project2Genre"),
+        download: document.querySelector(".project2Download"),
         headingClass: "project2HeadingShow",
         textClass: "project2TextClick",
         detailsClass: "project2DetailsClick",        
+        genreClass: "project2GenreClick",
+        downloadClass: "project2DownloadClick",
       },
       {
         element: document.querySelector(".project-3"),
         heading: document.querySelector(".project-3-heading-BG"),
         text: document.querySelector(".project-3-text"),
         details: document.querySelector(".project3Details"),
+        genre: document.querySelector(".project3Genre"),
+        download: document.querySelector(".project3Download"),
         headingClass: "project3HeadingShow",
         textClass: "project3TextClick",
         detailsClass: "project3DetailsClick",        
+        genreClass: "project3GenreClick",
+        downloadClass: "project3DownloadClick",
       },
       {
         element: document.querySelector(".project-upcoming-1"),
         heading: document.querySelector(".project-upcoming-1-heading-BG"),
         text: document.querySelector(".project-upcoming-1-text"),
         details: document.querySelector(".projectUpcoming1Details"),
+        genre: document.querySelector(".projectUpcoming1Genre"),
+        download: document.querySelector(".projectUpcoming1Download"),
         headingClass: "projectUpcoming1HeadingShow",
         textClass: "projectUpcoming1TextClick",
-        detailsClass: "projectUpcoming1DetailsClick",        
+        detailsClass: "projectUpcoming1DetailsClick",   
+        genreClass: "projectUpcoming1GenreClick",     
+        downloadClass: "projectUpcoming1DownloadClick",
       },
     ];
   
@@ -1001,13 +1053,17 @@ function ProjectsContainerFunction() {
     const myProjects = document.querySelector(".myProjects");
   
     function toggleProjectDisplay(project) {
-      const { element, heading, text, details, headingClass, textClass, detailsClass } = project;
+      const { 
+        element, heading, text, details, genre, download,
+        headingClass, textClass, detailsClass, genreClass, downloadClass} = project;
       const isDisplayed = element.classList.contains("projectDisplayShow");
   
       element.classList.toggle("projectDisplayShow", !isDisplayed);
       heading.classList.toggle(headingClass, !isDisplayed);
       text.classList.toggle(textClass, !isDisplayed);
       details.classList.toggle(detailsClass, !isDisplayed);
+      genre.classList.toggle(genreClass, !isDisplayed);
+      download.classList.toggle(downloadClass, !isDisplayed);
   
       main3FrontBG.classList.toggle("main3FrontBGClick", !isDisplayed);
       main3BackBG.classList.toggle("main3BackBGClick", !isDisplayed);
