@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="Viewport" content="width=device-width, initial-scale=1" />
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="Style/Style.css" />
+    <title>VADIM NIEDENTAL</title>
+    <link rel="icon" href="../Portfolio 2024/Media/img/icon-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="Style/Style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <style>
@@ -22,6 +23,7 @@
 <!-- Observers ------------------------------------------------------------------------------ -->
  
 <div>
+  <div id="observerScrollBack"></div>
   <div id="observerName"></div>
   <div id="observerInfo">INFO</div>
   <div id="observerCS">CS</div>
@@ -44,6 +46,7 @@
   <div id="observerDeveloper"></div>
   <div id="observerProfile"></div>
 
+  <div id="observerLogoOut"></div>
   <div id="observerLogoOut"></div>
   <div id="observerAboutOut"></div>
   <div id="observerabout-front-BGOut">blue background back</div>
@@ -108,8 +111,8 @@
   
   <div class="main2_container">
     <!-- --------- BACKGROUND --------- -->
-    <div class="about-front-BG about-front-BGHidden"></div>
-    <div class="about-back-BG"></div>
+    <div class="about-backBG"></div>
+    <div class="about-frontBG"></div>
     <!-- --------- CONTACT ME --------- -->
     <div class="contact-me">
       <p>CONTACT ME</p>
@@ -159,7 +162,7 @@
       </div>
       <div class="box_top_right"></div>
 
-      <div class="profile3">Skills
+      <div id="profile3" class="profile3">Skills
         <div class="profile3Backside">
           <p>Intuitive Level & Game Design</p>
           <p>Proficiency in C# within Unity & Godot</p>
@@ -169,7 +172,7 @@
       </div>
       <div class="box_bottom_left"></div>
 
-      <div class="profile4">Developer
+      <div id="profile4"class="profile4">Developer
         <div class="profile4Backside">
           <p>Academics by SRH Fachschulen Heidelberg</p>
           <p>Two mayor group projects without expertise</p>
@@ -215,7 +218,7 @@
           <div class="project-3 projectDisplay"></div>
         </div>
         <!-- --------- UPCOMING --------- -->
-        <div class="upcoming">upcoming</div>
+        <div class="upcoming">coming late</div>
         <div class="upcoming-line"></div>
         <div class="project-upcoming-1-container">
           <div class="project-upcoming-1 projectDisplay"></div>
@@ -228,11 +231,19 @@
       <div class="project-1-text">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
       </div>
+      <div class="project1Details">
+        <div class="imgWebapp"></div>
+        <div class="imgJS"></div>
+      </div>
 
       <div class="project-2-heading-BG">
         <div class="project-2-heading">Haunted</div>
       </div>
       <div class="project-2-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </div>
+      <div class="project2Details">
+        <div class="imgUnity"></div>
+        <div class="imgCS"></div>
       </div>
 
       <div class="project-3-heading-BG">
@@ -240,13 +251,26 @@
       </div>
       <div class="project-3-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
       </div>
+      <div class="project3Details">
+        <div class="imgGodot"></div>
+        <div class="imgCS"></div>
+      </div>
 
       <div class="project-upcoming-1-heading-BG">
         <div class="project-upcoming-1-heading">Anomaly</div>
       </div>
-      <div class="project-upcoming-1-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      <div class="project-upcoming-1-text"> 
+        The fundament of humanity itself has gained couciousness for itself.</br>
+        A mere construct of Souls is the end of all Akasa.</br>
+        Unimaginable amounts of power flows through its empty space of nothingness leaching for even more power.</br>
+        Kio might be the only one to stop this disarray.
+      </div>
+      <div class="projectUpcoming1Details">
+        <div class="imgGodot"></div>
+        <div class="imgCS"></div>
       </div>
     </div>
+  </div>
 
 
 

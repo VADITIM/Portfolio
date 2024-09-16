@@ -1,26 +1,81 @@
-document.addEventListener("DOMContentLoaded", () => 
-{
-    Cursor();
-    Scroll();
-    // Parallax();
-    ProjectsContainerFunction();
+document.addEventListener("DOMContentLoaded", () => {
+  Cursor();
+  Scroll();
+  ProjectsContainerFunction();
+  // ScrollBack(); // Initialize ScrollBack function
 });
+
+function ScrollToPoint() {
+  console.log('ScrollToPoint function called');
+  
+  // Check if the window is already at the top to prevent unnecessary scrolls
+  if (window.pageYOffset !== 0) {
+      window.scrollTo({
+          top: 0,
+          behavior: 'smooth' // Try smooth scroll first
+      });
+
+      // Fallback for browsers that don't support smooth scrolling
+      setTimeout(() => {
+          if (window.pageYOffset !== 0) {
+              window.scrollTo(0, 0); // Scroll instantly if smooth fails
+          }
+      }, 1000); // 1 second timeout to ensure smooth scroll has been applied
+  } else {
+      console.log('Already at the top of the page, no scrolling needed');
+  }
+}
+
+function ScrollBack() {
+  const observerOptions = {
+      root: null, // Use the viewport as the root
+      rootMargin: "0px",
+      threshold: 0.1 // Trigger when 10% of the target is visible
+  };
+
+  const observerID = document.getElementById("observerScrollBack");
+
+  if (!observerID) {
+      console.error('observerScrollBack element not found');
+      return;
+  }
+
+  const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+              console.log('Target is intersecting, calling ScrollToPoint'); // Debugging log
+              ScrollToPoint();
+          }
+      });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+  observer.observe(observerID);
+
+  // Manually check if the element is already visible when the page loads
+  const rect = observerID.getBoundingClientRect();
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+  if (rect.top >= 0 && rect.bottom <= windowHeight) {
+      console.log('Element is already visible on page load, calling ScrollToPoint'); // Debugging log
+      ScrollToPoint();
+  }
+}
+
 
 function Parallax() {
     document.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
         const triggerPoint = -300;
-    
+
         document.querySelectorAll('.text').forEach((el, index) => {
-        const offset = (scrollY - el.parentElement.offsetTop + triggerPoint) * 0.2;
-        const rotation = offset *.3;
-        
-        el.style.transform = `rotateX(${rotation}deg)`;
+            const offset = (scrollY - el.parentElement.offsetTop + triggerPoint) * 0.2;
+            const rotation = offset * 0.3;
+
+            el.style.transform = `rotateX(${rotation}deg)`;
         });
     });
-}
-
-function Cursor() {
+}function Cursor() {
     const cursorDot = document.querySelector("[dataCursorDot]");
     const cursorOutline = document.querySelector("[dataCursorOutline]");
     const snappables = document.querySelectorAll("[dataSnappable]");
@@ -199,7 +254,7 @@ function Scroll() {
       const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1, };
 
       const observerID = document.getElementById('observerAbout');
-      const Hover = document.querySelectorAll('.about-front-BG');
+      const Hover = document.querySelectorAll('.about-backBG');
       const about = document.querySelectorAll('.about');
 
       const observer = new IntersectionObserver((entries) => {
@@ -243,8 +298,7 @@ AboutMeOut2();
       const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
     
       const observerID = document.getElementById("observerAboutOut");
-      const elements = document.querySelectorAll(".about-front-BG");
-      const about = document.querySelector("about");
+      const elements = document.querySelectorAll(".about-backBG");
     
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -266,7 +320,7 @@ AboutMeOut2();
         const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
       
         const observerID = document.getElementById("observerabout-front-BG");
-        const elements = document.querySelectorAll(".about-back-BG");
+        const elements = document.querySelectorAll(".about-frontBG");
       
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
@@ -286,7 +340,7 @@ AboutMeOut2();
         const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
       
         const observerID = document.getElementById("observerabout-back-BGOut2");
-        const elements = document.querySelectorAll(".about-back-BG");
+        const elements = document.querySelectorAll(".about-frontBG");
       
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
@@ -304,11 +358,12 @@ AboutMeOut2();
       
     AboutMeBGOut();
           
+        
     function BlueBackHold() {
       const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
     
       const observerID = document.getElementById("observerabout-back-BGOut2");
-      const elements = document.querySelectorAll(".about-back-BG");
+      const elements = document.querySelectorAll(".about-frontBG");
     
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -907,29 +962,37 @@ function ProjectsContainerFunction() {
         element: document.querySelector(".project-1"),
         heading: document.querySelector(".project-1-heading-BG"),
         text: document.querySelector(".project-1-text"),
+        details: document.querySelector(".project1Details"),
         headingClass: "project1HeadingShow",
         textClass: "project1TextClick",
+        detailsClass: "project1DetailsClick",        
       },
       {
         element: document.querySelector(".project-2"),
         heading: document.querySelector(".project-2-heading-BG"),
         text: document.querySelector(".project-2-text"),
+        details: document.querySelector(".project2Details"),
         headingClass: "project2HeadingShow",
         textClass: "project2TextClick",
+        detailsClass: "project2DetailsClick",        
       },
       {
         element: document.querySelector(".project-3"),
         heading: document.querySelector(".project-3-heading-BG"),
         text: document.querySelector(".project-3-text"),
+        details: document.querySelector(".project3Details"),
         headingClass: "project3HeadingShow",
         textClass: "project3TextClick",
+        detailsClass: "project3DetailsClick",        
       },
       {
         element: document.querySelector(".project-upcoming-1"),
         heading: document.querySelector(".project-upcoming-1-heading-BG"),
         text: document.querySelector(".project-upcoming-1-text"),
+        details: document.querySelector(".projectUpcoming1Details"),
         headingClass: "projectUpcoming1HeadingShow",
         textClass: "projectUpcoming1TextClick",
+        detailsClass: "projectUpcoming1DetailsClick",        
       },
     ];
   
@@ -938,12 +1001,13 @@ function ProjectsContainerFunction() {
     const myProjects = document.querySelector(".myProjects");
   
     function toggleProjectDisplay(project) {
-      const { element, heading, text, headingClass, textClass } = project;
+      const { element, heading, text, details, headingClass, textClass, detailsClass } = project;
       const isDisplayed = element.classList.contains("projectDisplayShow");
   
       element.classList.toggle("projectDisplayShow", !isDisplayed);
       heading.classList.toggle(headingClass, !isDisplayed);
       text.classList.toggle(textClass, !isDisplayed);
+      details.classList.toggle(detailsClass, !isDisplayed);
   
       main3FrontBG.classList.toggle("main3FrontBGClick", !isDisplayed);
       main3BackBG.classList.toggle("main3BackBGClick", !isDisplayed);
