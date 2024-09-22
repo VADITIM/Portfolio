@@ -291,7 +291,7 @@ body::-webkit-scrollbar {
 
 #observerName {
   top: 35vh;
-  opacity: 1;
+  opacity: 0;
 }
 
 #observerCS {
@@ -1991,6 +1991,10 @@ body::-webkit-scrollbar {
 @media (max-width: 400px) 
 {
 
+  body {
+    overflow-y: hidden;
+  }
+
   .name {
     top: -25svh;
   }
@@ -2011,6 +2015,15 @@ body::-webkit-scrollbar {
     height: 3%;
   }
 
+  .infoHidden {
+    transform: translateY(-100%);
+    transition: .3s ease all, opacity 1s ease;
+  }
+  
+  .infoShow {
+    transform: translateY(0);
+  }
+  
   .info_line {
     top: 30%;
     height: 30svh;
@@ -2030,16 +2043,58 @@ body::-webkit-scrollbar {
    width: 90vw;
   }
 
+  .CSHidden {
+    opacity: 0;
+    transform: rotateY(0deg);
+    left: 130vw;
+    transition: .9s ease, opacity .5s 1s, transform 2s;
+  }
+  
+  .CSShow {
+    left: 10%;
+    opacity: 1;
+    transform: rotateY(20deg);
+    transition: .3s ease, opacity 0s, width .3s ease .3s;
+  }
+  
   .info_frontend {
     top: 43%;
     width: 90vw;
   }
 
+  .frontendHidden {
+    opacity: 0;
+    transform: rotateY(0deg);
+    left: 130vw;
+    transition: .9s ease, opacity .5s 1s, transform 2s;
+  }
+  
+  .frontendShow {
+    left: 10%;
+    opacity: 1;
+    transform: rotateY(20deg);
+    transition: .3s ease, opacity 0s, width .3s ease .3s;
+  }
+  
   .info_game_designer {
     top: 53%;
     width: 90vw;
   }
 
+  .designerHidden {
+    opacity: 0;
+    transform: rotateY(0deg);
+    left: 130vw;
+    transition: .9s ease, opacity .5s 1s, transform 2s;
+  }
+  
+  .designerShow {
+    left: 10%;
+    opacity: 1;
+    transform: rotateY(20deg);
+    transition: .3s ease, opacity 0s, width .3s ease .3s;
+  }
+  
 }
 
 
