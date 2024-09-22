@@ -1991,7 +1991,7 @@ body::-webkit-scrollbar {
 @media (max-width: 400px) 
 {
 
-  body {
+  html, body {
     overflow-x: hidden;
   }
 
