@@ -291,7 +291,7 @@ body::-webkit-scrollbar {
 
 #observerName {
   top: 35vh;
-  opacity: 0;
+  opacity: 1;
 }
 
 #observerCS {
@@ -1985,6 +1985,59 @@ body::-webkit-scrollbar {
   
   .main3Background {
     transform: rotateX(30deg) translateX(-5%);
+  }
+}
+
+@media (max-width: 400px) 
+{
+
+  .name {
+    top: -25svh;
+  }
+  .vadim {
+    font-size: 6rem;
+  }
+
+  .niedental {
+    font-size: 4rem;
+  }
+
+  .mainBackground {
+    display: none;
+  }
+  
+  .name_underline {
+    top: 55%;
+    height: 3%;
+  }
+
+  .info_line {
+    top: 30%;
+    height: 30svh;
+  }
+
+  .info_CS,
+  .info_frontend,
+  .info_game_designer {
+    font-size: 1.5rem;
+    width: 35svw;
+    height: 2rem;
+    left: 4vh;
+  }
+
+  .info_CS {
+   top: 33%;
+   width: 90vw;
+  }
+
+  .info_frontend {
+    top: 43%;
+    width: 90vw;
+  }
+
+  .info_game_designer {
+    top: 53%;
+    width: 90vw;
   }
 
 }
