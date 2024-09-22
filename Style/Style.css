@@ -1992,7 +1992,7 @@ body::-webkit-scrollbar {
 {
 
   body {
-    overflow-y: hidden;
+    overflow-x: hidden;
   }
 
   .name {
